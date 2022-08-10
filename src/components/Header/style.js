@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-const Header = styled.div`
+const AppHeader = styled.div`
   position: fixed;
-  left: 350;
+  left: 300px;
   top: 0;
   background: #fff;
 `;
+
+export {AppHeader};
