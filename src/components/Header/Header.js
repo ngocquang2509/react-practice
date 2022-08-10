@@ -1,10 +1,10 @@
 import React from "react";
-import {AppHeader} from './style';
+import {AppHeader, SearchBar} from './style';
 
 function Header() {
     return(
         <AppHeader>
-            <p>This is Header</p>
+            <SearchBar type="text" placeholder="Search product..." />
         </AppHeader>
     )
 }
