@@ -5,6 +5,7 @@ const LeftSideBar = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: fixed;
   left: 0;
   top: 0;
@@ -19,32 +20,61 @@ const BrandName = styled.p`
   margin: 50px 0;
 `;
 
-const MenuList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-  margin-top: 50px;
-`;
+// const MenuList = styled.ul`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   list-style: none;
+//   padding: 0;
+//   margin-top: 50px;
+// `;
 
-const MenuItem = styled.li`
+// const MenuItem = styled.li`
+//   display: flex;
+//   align-items: center;
+//   width: 200px;
+//   margin: 30px;
+//   padding: 15px 25px;
+//   cursor: pointer;
+//   &:focus,
+//   &:hover {
+//     background: #ffffff;
+//     opacity: 0.1;
+//     border-radius: 10px;
+//   }
+// `;
+
+// const MenuItemText = styled.a`
+//   padding-left: 10px;
+//   text-decoration: none;
+//   text-transform: uppercase;
+//   font-size: 20px;
+//   color: #fff;
+// `;
+
+const SideBtn = styled.button`
   display: flex;
   align-items: center;
   width: 200px;
   margin: 30px;
-  padding: 15px 25px;
+  background: none;
+  border: none;
   cursor: pointer;
-  border-radius: 10px;
-  border: 1px solid #fff;
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    opacity: 0.5;
+    border-radius: 10px;
+    border: 1px solid #fff;
+  }
 `;
 
-const MenuItemText = styled.a`
-  padding-left: 10px;
+const SideBtnText = styled.a`
   text-decoration: none;
   text-transform: uppercase;
+  padding-left: 10px;
   font-size: 20px;
   color: #fff;
 `;
 
-export { LeftSideBar, BrandName, MenuList, MenuItem, MenuItemText };
+export { LeftSideBar, BrandName, SideBtn, SideBtnText };
