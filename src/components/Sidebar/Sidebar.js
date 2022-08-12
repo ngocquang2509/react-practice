@@ -1,8 +1,5 @@
 import React from "react";
 import { LeftSideBar, BrandName, SideBtn, SideBtnText } from "./style";
-import ItemButton from "../Button/Button";
-import {ButtonProvider} from "../Context/ButtonContext";
-
 
 function SideBar() {
   return (
@@ -20,9 +17,6 @@ function SideBar() {
         <img src="/icons/discount.svg" alt="home" />
         <SideBtnText>Discount</SideBtnText>
       </SideBtn>
-      <ButtonProvider>
-        <ItemButton/>
-      </ButtonProvider>
     </LeftSideBar>
   );
 }
