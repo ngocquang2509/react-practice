@@ -1,12 +1,19 @@
-import React, {useContext} from "react";
-import { ButtonContext } from "../Context/ButtonContext";
-import { Button } from "./style";
+import React from "react";
+import * as SC from "./style";
+import PropTypes from "prop-types";
 
-function ItemButton() {
-    const btnContext = useContext(ButtonContext);
+function Button({label, backgroundColor, handleClick}) {
     return (
-        <Button btnContext/>
+        <SC.Button onClick={handleClick} style={backgroundColor && {backgroundColor}}>
+            {label}
+        </SC.Button>
     )
 }
 
-export default ItemButton;
+Button.propTypes = {
+    label: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string,
+    handleClick: PropTypes.func
+}
+
+export default Button;
