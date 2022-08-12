@@ -2,9 +2,9 @@ import React from "react";
 import * as SC from "./style";
 import PropTypes from "prop-types";
 
-function Button({label, backgroundColor, handleClick}) {
+function Button({label, bgColor, textColor, handleClick}) {
     return (
-        <SC.Button onClick={handleClick} style={backgroundColor && {backgroundColor}}>
+        <SC.Button onClick={handleClick} bgColor={bgColor} color={textColor}>
             {label}
         </SC.Button>
     )
@@ -12,7 +12,9 @@ function Button({label, backgroundColor, handleClick}) {
 
 Button.propTypes = {
     label: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string,
+    // backgroundColor: PropTypes.string,
+    bgColor: PropTypes.string,
+    textColor: PropTypes.string,
     handleClick: PropTypes.func
 }
 

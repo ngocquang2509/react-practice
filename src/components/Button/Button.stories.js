@@ -6,6 +6,8 @@ export default {
   component: Button,
   argTypes: {
     handleClick: { action: "clicked" },
+    bgColor: {control: "color" },
+    textColor: {control: "color" },
   }
 };
 
@@ -13,17 +15,20 @@ const Template = (args) => <Button {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   label: "Default Button",
-  backgroundColor: "#fff",
+  bgColor: "#fff",
+  textColor: "#000",
 };
 
 export const Edit = Template.bind({});
 Edit.args = {
   label: "Edit",
-  backgroundColor: "#ffcf00",
+  bgColor: "#ffcf00",
+  textColor: "#000",
 }
 
 export const Delete = Template.bind({});
 Delete.args = {
   label: "Delete",
-  backgroundColor: "#ff0000",
+  bgColor: "#ff0000",
+  textColor: "#000",
 }
