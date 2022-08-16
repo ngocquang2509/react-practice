@@ -8,9 +8,9 @@ function Item({ name, price, category, image }) {
       <SC.ItemImageWrapper>
         <SC.ItemImg src={image} />
       </SC.ItemImageWrapper>
-      <SC.ItemName>{name}</SC.ItemName>
-      <SC.ItemCategory as="p">{category}</SC.ItemCategory>
-      <SC.ItemPrice as="p">{price} VND</SC.ItemPrice>
+      <SC.ItemName>Product name{/*{name}*/}</SC.ItemName>  
+      <SC.ItemCategory as="p">Categoy{/*{category}*/}</SC.ItemCategory>
+      <SC.ItemPrice as="p">1000000{/*{price}*/} VND</SC.ItemPrice>
       <SC.Container>
         <Button label="Edit" backgroundColor='#ffcf00' img='/icons/edit.svg'/>
         <Button label="Delete" backgroundColor="#ff0000" img='/icons/delete.svg'/>
