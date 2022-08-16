@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
-
 function Item({ name, price, category, image }) {
   return (
     <SC.WrappItem>
@@ -13,8 +12,8 @@ function Item({ name, price, category, image }) {
       <SC.ItemCategory as="p">{category}</SC.ItemCategory>
       <SC.ItemPrice as="p">{price} VND</SC.ItemPrice>
       <SC.Container>
-        <Button label="Edit" backgroundColor="#ffcf00" />
-        <Button label="Delete" backgroundColor="#ff0000" />
+        <Button label="Edit" backgroundColor='#ffcf00' img='/icons/edit.svg'/>
+        <Button label="Delete" backgroundColor="#ff0000" img='/icons/delete.svg'/>
       </SC.Container>
     </SC.WrappItem>
   );
