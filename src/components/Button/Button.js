@@ -9,7 +9,7 @@ function Button({ label, backgroundColor, textColor, handleClick, img }) {
       bgColor={backgroundColor}
       color={textColor}
     >
-      <img src={img} alt={label} />
+      <img src={img} alt='' />
       {label}
     </SC.Button>
   );
@@ -19,7 +19,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
   textColor: PropTypes.string,
-
+  img: PropTypes.string,
   handleClick: PropTypes.func,
 };
 
