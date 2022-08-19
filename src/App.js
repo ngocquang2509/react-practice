@@ -5,13 +5,16 @@ import React from "react";
 import Header from "./components/Header/Header";
 import ListProduct from "./components/List Product/ListProduct";
 import SideBar from "./components/Sidebar/Sidebar";
+import { StoreProvider } from "./store";
 
 function App() {
   return (
     <div className="App">
       <SideBar />
       <Header />
-      <ListProduct />
+      <StoreProvider>
+        <ListProduct />
+      </StoreProvider>
     </div>
   );
 }
