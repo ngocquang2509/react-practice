@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import { useStore } from "../../store";
 function Item({ name, price, category, image }) {
   const [state, dispatch] = useStore();
-  const { item } = state;
+  const { items } = state;
   const [selectedId, setSelectedId] = useState();
 
   const delItem = (id) => {
@@ -22,14 +22,14 @@ function Item({ name, price, category, image }) {
 
   return (
     <React.Fragment>
-      {item.map((item) => (
-        <SC.WrappItem key={item.id}>
+      {items.map((items) => (
+        <SC.WrappItem key={items.id}>
           <SC.ItemImageWrapper>
-            <SC.ItemImg src={item.image} />
+            <SC.ItemImg src={items.image} />
           </SC.ItemImageWrapper>
-          <SC.ItemName>{item.name}</SC.ItemName>
-          <SC.ItemCategory as="p">{item.category}</SC.ItemCategory>
-          <SC.ItemPrice as="p">{item.price} VND</SC.ItemPrice>
+          <SC.ItemName>{items.name}</SC.ItemName>
+          <SC.ItemCategory as="p">{items.category}</SC.ItemCategory>
+          <SC.ItemPrice as="p">{items.price} VND</SC.ItemPrice>
           <SC.Container>
             <Button
               label="Edit"

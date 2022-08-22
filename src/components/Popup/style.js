@@ -8,7 +8,7 @@ const PopupOverlay = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #000;
-  opacity: .5;
+  opacity: 0.5;
 `;
 
 const PopupWrapper = styled.div`
@@ -39,13 +39,15 @@ const PopupTitle = styled.h3`
   margin: 50px;
 `;
 
-const PopupBody = styled.div`
+const PopupForm = styled.form`
   margin: 50px;
+`;
+
+const PopupBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 `;
 
 const InputContainer = styled.div`
@@ -72,8 +74,7 @@ const PopupFooter = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
-`
+`;
 
 export {
   PopupWrapper,
@@ -84,5 +85,6 @@ export {
   InputContainer,
   PopupClose,
   PopupOverlay,
-  PopupFooter
+  PopupFooter,
+  PopupForm
 };
