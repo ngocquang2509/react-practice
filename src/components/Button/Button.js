@@ -2,9 +2,10 @@ import React from "react";
 import * as SC from "./style";
 import PropTypes from "prop-types";
 
-function Button({ label, backgroundColor, textColor, handleClick, img }) {
+function Button({ label, backgroundColor, textColor, handleClick, img, mg }) {
   return (
     <SC.Button
+      margin={mg}
       onClick={handleClick}
       bgColor={backgroundColor}
       color={textColor}
