@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Item from "../Item/Item";
 import { ListProductTitle, ListProductWrap, ListProductItem } from "./style";
 import Button from "../Button/Button";
 import Popup from "../Popup/Popup";
+import { StoreContext } from "../../store";
 
 function ListProduct() {
   const [openModal, setOpenModal] = useState(false);
+  const addProduct = useContext(StoreContext)
   return (
     <ListProductWrap>
       <ListProductTitle>List Product</ListProductTitle>
@@ -16,7 +18,7 @@ function ListProduct() {
         img="/icons/add.svg"
         handleClick={() => setOpenModal(true)}
       />
-      {openModal && <Popup closeModal={setOpenModal} />}
+      {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct}/>}
       <ListProductItem>
         <Item />
       </ListProductItem>

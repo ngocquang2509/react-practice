@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
-function Popup({ title, label, closeModal }) {
+function Popup({ title, label, closeModal, onSubmit }) {
 
-  function onSubmit(e) {
+  const [inputs, setInputs] = useState({})
+
+  function handleSubmit(e) {
     e.preventDefault();
-    closeModal(false);
+    onSubmit({...inputs})
+    setInputs('')
   }
 
   return (
@@ -15,7 +18,7 @@ function Popup({ title, label, closeModal }) {
       <SC.PopupWrapper>
         <SC.PopupClose onClick={() => closeModal(false)}>X</SC.PopupClose>
         <SC.PopupTitle>Modal{/* {title} */}</SC.PopupTitle>
-        <SC.PopupForm onSubmit={onSubmit}>
+        <SC.PopupForm onSubmit={handleSubmit}>
           <SC.PopupBody>
             <SC.InputContainer>
               <SC.PopupLabel>Name{/* {label} */}</SC.PopupLabel>

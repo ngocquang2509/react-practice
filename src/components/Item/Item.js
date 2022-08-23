@@ -22,8 +22,8 @@ function Item({ name, price, category, image }) {
 
   return (
     <React.Fragment>
-      {items.map((items) => (
-        <SC.WrappItem key={items.id}>
+      {items.map((items, index) => (
+        <SC.WrappItem key={index}>
           <SC.ItemImageWrapper>
             <SC.ItemImg src={items.image} />
           </SC.ItemImageWrapper>
