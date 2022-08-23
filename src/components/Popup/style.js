@@ -19,7 +19,7 @@ const PopupWrapper = styled.div`
   height: 600px;
   z-index: 1050;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   outline: 0;
   background: #ffffff;
   border: 1px solid #000000;
@@ -33,10 +33,9 @@ const PopupClose = styled.span`
   cursor: pointer;
 `;
 const PopupTitle = styled.h3`
-  margin: 10px;
   font-size: 32px;
   text-align: center;
-  margin: 50px;
+  margin: 30px;
 `;
 
 const PopupForm = styled.form`
@@ -57,12 +56,12 @@ const InputContainer = styled.div`
 `;
 
 const PopupLabel = styled.label`
-  margin: 10px 30px;
-  font-size: 24px;
+  margin: 10px 30px 0;
+  font-size: 20px;
 `;
 const PopupInput = styled.input`
   width: 570px;
-  height: 50px;
+  height: 30px;
   border: 1px solid #ccc;
   border-radius: 50px;
   margin: 10px;
@@ -74,6 +73,7 @@ const PopupFooter = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  margin-top: 30px;
 `;
 
 export {

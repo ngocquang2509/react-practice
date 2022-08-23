@@ -1,26 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
-import { useStore, actions } from "../../store";
-//import Button from "../Button/Button";
-// import { useLocalStorage } from "../../store";
-
 function Popup({ title, label, closeModal }) {
 
   function onSubmit(e) {
     e.preventDefault();
     closeModal(false);
   }
-
-  const [state, dispatch] = useStore();
-  const { items, itemInput } = state;
-
-  function handlAddItem() {
-    dispatch(actions.addItem(itemInput));
-  }
-
-  console.log("items", items);
 
   return (
     <>
@@ -34,24 +21,30 @@ function Popup({ title, label, closeModal }) {
               <SC.PopupLabel>Name{/* {label} */}</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
-                value={itemInput.itemName}
                 placeholder="Item Name"
-                onChange={(e) => {
-                  dispatch(actions.setItemInput(e.target.value));
-                }}
+              />
+            </SC.InputContainer>
+            <SC.InputContainer>
+              <SC.PopupLabel>Category{/* {label} */}</SC.PopupLabel>
+              <SC.PopupInput
+                type="text"
+                placeholder="Category"
               />
             </SC.InputContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Price{/* {label} */}</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
-                value={itemInput.itemPrice}
-                placeholder="Item Price"
-                onChange={(e) => {
-                  dispatch(actions.setItemInput(e.target.value));
-                }}
+                placeholder="Price"
               />
               {/* onChange={onChangeItem} value={itemValues.itemPrice} name='itemPrice' */}
+            </SC.InputContainer>
+            <SC.InputContainer>
+              <SC.PopupLabel>Image{/* {label} */}</SC.PopupLabel>
+              <SC.PopupInput
+                type="text"
+                placeholder="Image link"
+              />
             </SC.InputContainer>
           </SC.PopupBody>
           <SC.PopupFooter>
@@ -64,7 +57,6 @@ function Popup({ title, label, closeModal }) {
               type="submit"
               label="Create"
               backgroundColor="green"
-              handleClick={handlAddItem}
             />
           </SC.PopupFooter>
         </SC.PopupForm>
