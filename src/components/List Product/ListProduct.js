@@ -10,12 +10,13 @@ function ListProduct() {
     <ListProductWrap>
       <ListProductTitle>List Product</ListProductTitle>
       <Button
+        mg='10px 100px'
         label="Create"
         backgroundColor="#418CD1"
         img="/icons/add.svg"
         handleClick={() => setOpenModal(true)}
       />
-      {openModal && <Popup closeModal={setOpenModal}/>}
+      {openModal && <Popup closeModal={setOpenModal} />}
       <ListProductItem>
         <Item />
       </ListProductItem>
