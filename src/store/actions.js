@@ -1,9 +1,9 @@
-import {ADD_ITEM} from "./constant";
+import {ADD_PRODUCT} from "./constant";
 
 
 
 export const addItem = payload => ({
-    type: ADD_ITEM,
+    type: ADD_PRODUCT,
     payload
 })
 

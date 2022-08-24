@@ -1,22 +1,23 @@
-import { ADD_ITEM} from "./constant";
+import { ADD_PRODUCT } from "./constant";
 
+
+const listProducts = JSON.parse(localStorage.getItem("Products")) || [];
 const initState = {
-  items: [],
+  products: listProducts
 };
 
 function reducer(state, action) {
   switch (action.type) {
-
-    case ADD_ITEM:
-      const items = [...state.items, action.payload];
-      localStorage.setItem('items', JSON.stringify(items));
+    case ADD_PRODUCT:
+      const products = [...state.products, action.payload];
+      localStorage.setItem("Products", JSON.stringify(products));
       return {
         ...state,
-        items: items,
+        products: products,
       };
 
     default:
-      return state
+      return state;
   }
 }
 

@@ -1,1 +1,1 @@
-export const ADD_ITEM = 'add-item'
+export const ADD_PRODUCT = 'add-prodcuct';
