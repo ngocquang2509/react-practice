@@ -1,26 +1,30 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
-import { useLocalStorage } from "../../store/hooks";
-import Context from "../../store/Context";
-import actions from "../../store";
-function Popup({ title, label, closeModal, onSubmit }) {
-  // const [name, setName] = useLocalStorage("name", "");
-  // const [price, setPrice] = useLocalStorage("price", "");
-  // const [image, setImage] = useLocalStorage("image", "");
 
-  const [product, setProduct] = useLocalStorage("product", {});
+function Popup({
+  title,
+  label,
+  closeModal,
+  onSubmit,
+  product = {},
+  handleAdd,
+}) {
+  const [productValue, setProduct] = useState(product);
+  //const [isSubmit, setIsSubmit] = useState(false);
 
-  const [state, dispatch] = useContext(Context)
-  const { products } = state;
-  
   const handleOnChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setProduct(values => ({...values, [name]: value}));
-    dispatch(actions.addProduct(product));
-  }
+    // const name = e.target.name;
+    // const value = e.target.value;
+    const { name, value } = e.target;
+    setProduct((values) => ({ ...values, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //setIsSubmit(true);
+  };
 
   return (
     <>
@@ -28,7 +32,7 @@ function Popup({ title, label, closeModal, onSubmit }) {
       <SC.PopupWrapper>
         <SC.PopupClose onClick={() => closeModal(false)}>X</SC.PopupClose>
         <SC.PopupTitle>Modal{/* {title} */}</SC.PopupTitle>
-        <SC.PopupForm onSubmit={(e) => e.preventDefault}>
+        <SC.PopupForm onSubmit={handleSubmit}>
           <SC.PopupBody>
             <SC.InputContainer>
               <SC.PopupLabel>Name{/* {label} */}</SC.PopupLabel>
@@ -36,7 +40,7 @@ function Popup({ title, label, closeModal, onSubmit }) {
                 type="text"
                 placeholder="Product Name"
                 name="name"
-                value={product.name || ''}
+                value={productValue.name || ""}
                 onChange={handleOnChange}
               />
             </SC.InputContainer>
@@ -50,7 +54,7 @@ function Popup({ title, label, closeModal, onSubmit }) {
                 type="text"
                 placeholder="Price"
                 name="price"
-                value={product.price}
+                value={productValue.price || ""}
                 onChange={handleOnChange}
               />
               {/* onChange={onChangeItem} value={itemValues.itemPrice} name='itemPrice' */}
@@ -61,7 +65,7 @@ function Popup({ title, label, closeModal, onSubmit }) {
                 type="text"
                 placeholder="Image link"
                 name="image"
-                value={product.image}
+                value={productValue.image || ""}
                 onChange={handleOnChange}
               />
             </SC.InputContainer>

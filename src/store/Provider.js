@@ -1,15 +1,19 @@
-import React, {useReducer} from "react";
+import React, { useReducer } from "react";
 import Context from "./Context";
-import reducer, {initState} from "./reducer";
+import reducer, { initState } from "./reducer";
+import { addProduct } from "./actions";
 
-function Provider({children}) {
-    const [state, dispatch] = useReducer(reducer, initState);
+function Provider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initState);
 
-    return (
-        <Context.Provider value={[state, dispatch]}>
-            {children}
-        </Context.Provider>
-    )
+  const value = {
+    products: state.products,
+    addProduct: ({ ...products }) => {
+      dispatch(addProduct(products));
+    },
+  };
+
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
 export default Provider;
