@@ -2,27 +2,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
-import { useStore } from "../../store";
-function Item({ name, price, category, image }) {
-  const [state, dispatch] = useStore();
-  const { products } = state;
-  const [selectedId, setSelectedId] = useState();
 
-  const delItem = (id) => {
-    dispatch({
-      type: "DELETE_ITEM",
-      payload: id,
-    });
-  };
-
-  const handleDeleteItem = () => {
-    delItem(selectedId);
-    setSelectedId(null);
-  };
-
+function Item({ name, price, category, image, products }) {
   return (
-    <React.Fragment>
-      {products.map((product, index) => (
+    <>
+      {products?.map((product, index) => (
         <SC.WrappItem key={index}>
           <SC.ItemImageWrapper>
             <SC.ItemImg src={product.image} />
@@ -40,12 +24,11 @@ function Item({ name, price, category, image }) {
               label="Delete"
               backgroundColor="#ff0000"
               img="/icons/delete.svg"
-              handleClick={handleDeleteItem}
             />
           </SC.Container>
         </SC.WrappItem>
       ))}
-    </React.Fragment>
+    </>
   );
 }
 
