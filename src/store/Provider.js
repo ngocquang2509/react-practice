@@ -1,15 +1,15 @@
 import React, { useReducer } from "react";
 import Context from "./Context";
 import reducer, { initState } from "./reducer";
-import { addProduct } from "./actions";
+import { actions } from ".";
 
 function Provider({ children }) {
   const [state, dispatch] = useReducer(reducer, initState);
 
   const value = {
     products: state.products,
-    addProduct: ({ ...products }) => {
-      dispatch(addProduct(products));
+    addProduct: ({ ...product }) => {
+      dispatch(actions.addProduct(product));
     },
   };
 

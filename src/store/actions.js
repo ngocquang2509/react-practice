@@ -1,6 +1,6 @@
 import { ADD_PRODUCT } from "./constant";
 
-export const addProduct = (product) => ({
+export const addProduct = (payload) => ({
   type: ADD_PRODUCT,
-  product,
+  payload,
 });

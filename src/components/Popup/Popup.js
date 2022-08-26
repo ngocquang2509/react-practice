@@ -24,6 +24,7 @@ function Popup({
   const handleSubmit = (e) => {
     e.preventDefault();
     //setIsSubmit(true);
+    onSubmit({ ...productValue });
   };
 
   return (
