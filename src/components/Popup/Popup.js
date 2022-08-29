@@ -3,28 +3,22 @@ import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
 
-function Popup({
-  title,
-  label,
-  closeModal,
-  onSubmit,
-  product = {},
-  handleAdd,
-}) {
-  const [productValue, setProduct] = useState(product);
+function Popup({ title, closeModal, onSubmit, products = {} }) {
+  const [product, setProduct] = useState(products);
   //const [isSubmit, setIsSubmit] = useState(false);
 
   const handleOnChange = (e) => {
-    // const name = e.target.name;
-    // const value = e.target.value;
-    const { name, value } = e.target;
+    const name = e.target.name;
+    const value = e.target.value;
+    // const { name, value } = e.target;
     setProduct((values) => ({ ...values, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //setIsSubmit(true);
-    onSubmit({ ...productValue });
+    onSubmit({ ...product });
+    closeModal(false);
   };
 
   return (
@@ -40,22 +34,28 @@ function Popup({
               <SC.PopupInput
                 type="text"
                 placeholder="Product Name"
-                name="name"
-                value={productValue.name || ""}
+                name="productName"
+                value={product.productName || ""}
                 onChange={handleOnChange}
               />
             </SC.InputContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Category{/* {label} */}</SC.PopupLabel>
-              <SC.PopupInput type="text" placeholder="Category" />
+              <SC.PopupInput
+                type="text"
+                placeholder="Category"
+                name="productCategory"
+                value={product.productCategory || ""}
+                onChange={handleOnChange}
+              />
             </SC.InputContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Price{/* {label} */}</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
                 placeholder="Price"
-                name="price"
-                value={productValue.price || ""}
+                name="productPrice"
+                value={product.productPrice || ""}
                 onChange={handleOnChange}
               />
               {/* onChange={onChangeItem} value={itemValues.itemPrice} name='itemPrice' */}
@@ -65,8 +65,8 @@ function Popup({
               <SC.PopupInput
                 type="text"
                 placeholder="Image link"
-                name="image"
-                value={productValue.image || ""}
+                name="productImage"
+                value={product.productImage || ""}
                 onChange={handleOnChange}
               />
             </SC.InputContainer>

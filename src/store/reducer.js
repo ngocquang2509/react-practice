@@ -1,7 +1,6 @@
 import { ADD_PRODUCT, DELETE_PRODUCT } from "./constant";
 
-//const listProduct = JSON.parse(localStorage.getItem("products")) || [];
-const initState = {
+export const initState = {
   products: JSON.parse(localStorage.getItem("products")) || [],
 };
 
@@ -11,6 +10,7 @@ function reducer(state, action) {
   switch (action.type) {
     case ADD_PRODUCT:
       const products = [...state.products, action.payload];
+      // Save data to localStorage
       localStorage.setItem("products", JSON.stringify(products));
       return {
         ...state,
@@ -31,5 +31,4 @@ function reducer(state, action) {
   }
 }
 
-export { initState };
 export default reducer;
