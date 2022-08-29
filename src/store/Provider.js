@@ -11,6 +11,9 @@ function Provider({ children }) {
     addProduct: ({ ...product }) => {
       dispatch(actions.addProduct(product));
     },
+    deleteProduct: (id) => {
+      dispatch(actions.deleteProduct(id));
+    },
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

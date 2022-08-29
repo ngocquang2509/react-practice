@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
 
-function Item({ name, price, category, image, products }) {
+function Item({ products }) {
   return (
     <>
       {products &&
