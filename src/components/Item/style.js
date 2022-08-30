@@ -24,13 +24,16 @@ const ItemPrice = styled.div`
 `;
 
 const ItemImageWrapper = styled.div`
-  height: 125px;
-  width: 215px;
-  border-raduis: 10px;
+  height: 140px;
+  width: auto;
+  margin: 2px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 `;
 const ItemImg = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const Container = styled.div`
