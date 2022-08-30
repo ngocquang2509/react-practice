@@ -4,8 +4,6 @@ export const initState = {
   products: JSON.parse(localStorage.getItem("products")) || [],
 };
 
-console.log("item", initState.products);
-
 function reducer(state, action) {
   switch (action.type) {
     case ADD_PRODUCT:

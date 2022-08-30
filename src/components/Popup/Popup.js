@@ -5,7 +5,6 @@ import Button from "../Button/Button";
 
 function Popup({ title, closeModal, onSubmit, products = {} }) {
   const [product, setProduct] = useState(products);
-  //const [isSubmit, setIsSubmit] = useState(false);
 
   const handleOnChange = (e) => {
     const name = e.target.name;
@@ -16,10 +15,13 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //setIsSubmit(true);
     onSubmit({ ...product });
     closeModal(false);
   };
+
+  const handleCancel = () => {
+    closeModal(false);
+  }
 
   return (
     <>
@@ -30,7 +32,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
         <SC.PopupForm onSubmit={handleSubmit}>
           <SC.PopupBody>
             <SC.InputContainer>
-              <SC.PopupLabel>Name{/* {label} */}</SC.PopupLabel>
+              <SC.PopupLabel>Name</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
                 placeholder="Product Name"
@@ -40,7 +42,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
               />
             </SC.InputContainer>
             <SC.InputContainer>
-              <SC.PopupLabel>Category{/* {label} */}</SC.PopupLabel>
+              <SC.PopupLabel>Category</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
                 placeholder="Category"
@@ -50,7 +52,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
               />
             </SC.InputContainer>
             <SC.InputContainer>
-              <SC.PopupLabel>Price{/* {label} */}</SC.PopupLabel>
+              <SC.PopupLabel>Price</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
                 placeholder="Price"
@@ -61,7 +63,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
               {/* onChange={onChangeItem} value={itemValues.itemPrice} name='itemPrice' */}
             </SC.InputContainer>
             <SC.InputContainer>
-              <SC.PopupLabel>Image{/* {label} */}</SC.PopupLabel>
+              <SC.PopupLabel>Image</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
                 placeholder="Image link"
@@ -75,7 +77,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
             <Button
               label="Cancel"
               backgroundColor="red"
-              handleClick={() => closeModal(false)}
+              handleClick={handleCancel}
             />
             <Button type="submit" label="Create" backgroundColor="green" />
           </SC.PopupFooter>
