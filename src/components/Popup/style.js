@@ -55,6 +55,29 @@ const InputContainer = styled.div`
   justify-content: center;
 `;
 
+const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const SelectMenu = styled.select`
+  width: 570px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  margin: 10px;
+  padding-left: 20px;
+`;
+const SelectInput = styled.option`
+  width: 570px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  margin: 10px;
+  padding-left: 20px;
+`;
+
 const PopupLabel = styled.label`
   margin: 10px 30px 0;
   font-size: 20px;
@@ -86,5 +109,8 @@ export {
   PopupClose,
   PopupOverlay,
   PopupFooter,
-  PopupForm
+  PopupForm,
+  SelectInput,
+  SelectMenu,
+  SelectContainer,
 };

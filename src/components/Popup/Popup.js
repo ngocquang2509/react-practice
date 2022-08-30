@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import * as SC from "./style";
+import * as SC from "./style"; // SC stand for Styled Components
 import Button from "../Button/Button";
+import { selectCategory } from "../../store";
 
 function Popup({ title, closeModal, onSubmit, products = {} }) {
   const [product, setProduct] = useState(products);
@@ -14,14 +15,13 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     onSubmit({ ...product });
     closeModal(false);
   };
 
   const handleCancel = () => {
     closeModal(false);
-  }
+  };
 
   return (
     <>
@@ -41,16 +41,23 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
                 onChange={handleOnChange}
               />
             </SC.InputContainer>
-            <SC.InputContainer>
+            <SC.SelectContainer>
               <SC.PopupLabel>Category</SC.PopupLabel>
-              <SC.PopupInput
-                type="text"
-                placeholder="Category"
+              <SC.SelectMenu
                 name="productCategory"
                 value={product.productCategory || ""}
                 onChange={handleOnChange}
-              />
-            </SC.InputContainer>
+              >
+                {selectCategory.map((options) => (
+                  <SC.SelectInput
+                    key={options.id}
+                    value={options.value}
+                  >
+                    {options.label}
+                  </SC.SelectInput>
+                ))}
+              </SC.SelectMenu>
+            </SC.SelectContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Price</SC.PopupLabel>
               <SC.PopupInput
@@ -79,7 +86,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
               backgroundColor="red"
               handleClick={handleCancel}
             />
-            <Button type="submit" label="Create" backgroundColor="green" />
+            <Button type="button" label="Create" backgroundColor="green" />
           </SC.PopupFooter>
         </SC.PopupForm>
       </SC.PopupWrapper>
