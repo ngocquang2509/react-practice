@@ -50,6 +50,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
               >
                 {selectCategory.map((options) => (
                   <SC.SelectInput
+                    disabled={options.disable}
                     key={options.id}
                     value={options.value}
                   >

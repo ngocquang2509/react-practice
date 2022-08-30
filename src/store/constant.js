@@ -3,7 +3,7 @@ export const DELETE_PRODUCT = "delete-product";
 
 
 export const selectCategory = [
-    {id: 1, value: '', label: 'Select Category'},
+    {id: 1, value: '', label: 'Select Category', disable : true},
     {id: 2, value: 'Shoes', label: 'Shoes'},
     {id: 3, value: 'Shirt', label: 'Shirt'},
     {id: 4, value: 'Jeans', label: 'Jeans'},
