@@ -20,7 +20,7 @@ function ListProduct() {
         img="/icons/add.svg"
         handleClick={() => setOpenModal(true)}
       />
-      {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct} />}
+      {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct} title='Create Product' />}
       <ListProductItem>
         <Item />
       </ListProductItem>

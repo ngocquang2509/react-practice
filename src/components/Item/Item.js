@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, {useState, useContext } from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
 import { StoreContext } from "../../store";
 
 function Item() {
-  const {products} = useContext(StoreContext);
+  const {products, deleteProduct} = useContext(StoreContext);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const handleDelete = () => {
+    deleteProduct(selectedProduct);
+    setSelectedProduct(null);
+  }
   return (
     <>
       {products && products.map((products, index) => (
@@ -26,6 +31,7 @@ function Item() {
               label="Delete"
               backgroundColor="#ff0000"
               img="/icons/delete.svg"
+              handleClick={handleDelete}
             />
           </SC.Container>
         </SC.WrappItem>

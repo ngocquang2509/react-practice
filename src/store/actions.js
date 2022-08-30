@@ -1,8 +1,8 @@
 import { ADD_PRODUCT, DELETE_PRODUCT } from "./constant";
 
-export const addProduct = (payload) => ({
+export const addProduct = (product) => ({
   type: ADD_PRODUCT,
-  payload,
+  product,
 });
 
 export const deleteProduct = (id) => ({

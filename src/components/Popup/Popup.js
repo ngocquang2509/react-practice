@@ -28,7 +28,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
       <SC.PopupOverlay />
       <SC.PopupWrapper>
         <SC.PopupClose onClick={() => closeModal(false)}>X</SC.PopupClose>
-        <SC.PopupTitle>Modal{/* {title} */}</SC.PopupTitle>
+        <SC.PopupTitle>{title}</SC.PopupTitle>
         <SC.PopupForm onSubmit={handleSubmit}>
           <SC.PopupBody>
             <SC.InputContainer>
