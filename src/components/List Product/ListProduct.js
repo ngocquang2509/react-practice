@@ -22,7 +22,7 @@ function ListProduct() {
       />
       {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct} title='Create Product' />}
       <ListProductItem>
-        <Item />
+        <Item/>
       </ListProductItem>
     </ListProductWrap>
   );

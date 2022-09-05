@@ -4,7 +4,7 @@ import * as SC from "./style"; // SC stand for Styled Components
 import Button from "../Button/Button";
 import { selectCategory } from "../../store";
 
-function Popup({ title, closeModal, handleAdd, products = {} }) {
+const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
   const [productValue, setProductValue] = useState(products);
   const [showErr, setShowErr] = useState({});
 
@@ -40,7 +40,7 @@ function Popup({ title, closeModal, handleAdd, products = {} }) {
     e.preventDefault();
     const validation = validate();
     if(!validation) return;
-    handleAdd({ ...productValue });
+    onSubmit({ ...productValue });
     closeModal(false);
   };
 
@@ -83,14 +83,14 @@ function Popup({ title, closeModal, handleAdd, products = {} }) {
                     {options.label}
                   </SC.SelectInput>
                 ))}
+                <SC.PopupError>{showErr.productCategory}</SC.PopupError>
               </SC.SelectMenu>
-              <SC.PopupError>{showErr.productCategory}</SC.PopupError>
             </SC.SelectContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Price</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
-                inputmode="numeric"
+                inputMode="numeric"
                 placeholder="Price"
                 name="productPrice"
                 value={productValue.productPrice || ""}
@@ -116,7 +116,7 @@ function Popup({ title, closeModal, handleAdd, products = {} }) {
               backgroundColor="red"
               handleClick={handleCancel}
             />
-            <Button type="submit" label="Create" backgroundColor="green" />
+            <Button type="button" label="Create" backgroundColor="green" />
           </SC.PopupFooter>
         </SC.PopupForm>
       </SC.PopupWrapper>

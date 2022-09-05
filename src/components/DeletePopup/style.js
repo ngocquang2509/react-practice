@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PopupOverlay = styled.div`
+const DeletePopupOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@ const PopupOverlay = styled.div`
   opacity: 0.5;
 `;
 
-const PopupWrapper = styled.div`
+const DeletePopupWrapper = styled.div`
   position: fixed;
   left: 700px;
   top: 200px;
@@ -26,19 +26,26 @@ const PopupWrapper = styled.div`
   border-radius: 10px;
 `;
 
-const PopupClose = styled.span`
+const DeletePopupClose = styled.span`
   position: absolute;
   top: 20px;
   right: 50px;
   cursor: pointer;
 `;
-const PopupTitle = styled.h3`
+const DeletePopupTitle = styled.h3`
   font-size: 32px;
   text-align: center;
   margin: 30px;
 `;
 
-const PopupFooter = styled.div`
+const DeletePopupBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const DeletePopupFooter = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -47,4 +54,4 @@ const PopupFooter = styled.div`
 `;
 
 
-export { PopupOverlay, PopupWrapper, PopupClose, PopupTitle, PopupFooter };
+export {DeletePopupClose, DeletePopupFooter, DeletePopupOverlay, DeletePopupTitle, DeletePopupWrapper, DeletePopupBody};

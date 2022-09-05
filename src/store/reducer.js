@@ -1,10 +1,10 @@
-import { ADD_PRODUCT, DELETE_PRODUCT } from "./constant";
+import { ADD_PRODUCT, DELETE_PRODUCT , UPDATE_PRODUCT} from "./constant";
 
 export const initState = {
   products: JSON.parse(localStorage.getItem("products")) || [],
 };
 
-function reducer(state, action) {
+const reducer = (state, action) => {
   switch (action.type) {
     case ADD_PRODUCT:
       const products = [...state.products, action.product];
@@ -15,14 +15,28 @@ function reducer(state, action) {
         products: products,
       };
     case DELETE_PRODUCT:
-      const productsDelete = state.products.filter(
+      const productDelete = state.products.filter(
         (product) => product.id !== action.id
       );
-      localStorage.setItem("products", JSON.stringify(productsDelete));
+      localStorage.setItem("products", JSON.stringify(productDelete));
       return {
         ...state,
-        products: productsDelete,
+        products: productDelete,
       };
+
+      case UPDATE_PRODUCT:
+        const updateProduct = action.id;
+        const updateProducts = state.products.map((product) => {
+          if(product.id === updateProduct.id){
+            return updateProduct;
+          }
+          return product;
+        })
+        localStorage.setItem("products", JSON.stringify(updateProducts));
+        return {
+          ...state,
+          products: updateProducts,
+        }
 
     default:
       return state;

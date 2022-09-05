@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../Button/Button";
 import * as SC from "./style"; // SC stand for Styled Components
 
-const DeletePopup = ({ onClose, onSubmit }) => {
+const DeletePopup = ({ closeDeleteModal, onSubmit }) => {
+
+    const handleClose = () => {
+        closeDeleteModal(false);
+    }
   return (
     <>
-      <SC.PopupOverlay />
-      <SC.PopupWrapper>
-        <SC.PopupClose onClick={onClose}>X</SC.PopupClose>
-        <SC.PopupTitle>Delete Product</SC.PopupTitle>
-        <SC.PopupBody>
-          <SC.PopupLabel>
+      <SC.DeletePopupOverlay />
+      <SC.DeletePopupWrapper>
+        <SC.DeletePopupClose onClick={handleClose}>X</SC.DeletePopupClose>
+        <SC.DeletePopupTitle>Delete Product</SC.DeletePopupTitle>
+        <SC.DeletePopupBody>
+          <div>
             Are you sure you want to delete this product?
-          </SC.PopupLabel>
-        </SC.PopupBody>
-        <SC.PopupFooter>
-            <Button label="Cancel" backgroundColor='red' handleClick={onClose}/>
-            <Button yes handleClick={onSubmit}/>
-        </SC.PopupFooter>
-      </SC.PopupWrapper>
+          </div>
+        </SC.DeletePopupBody>
+        <SC.DeletePopupFooter>
+            <Button label="Cancel" backgroundColor='red' handleClick={handleClose}/>
+            <Button yes handleClick={onSubmit} label="Delete" backgroundColor='green'/>
+        </SC.DeletePopupFooter>
+      </SC.DeletePopupWrapper>
     </>
   );
 };

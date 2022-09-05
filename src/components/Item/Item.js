@@ -3,18 +3,16 @@ import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
 import { StoreContext } from "../../store";
+import DeletePopup from "../DeletePopup/DeletePopup";
 
-function Item() {
+const Item = () => {
   const {products, deleteProduct} = useContext(StoreContext);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const handleDelete = () => {
-    deleteProduct(selectedProduct);
-    setSelectedProduct(null);
-  }
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
   return (
     <>
-      {products && products.map((products, index) => (
-        <SC.WrappItem key={index}>
+      {products && products.map((products) => (
+        <SC.WrappItem key={products.id}>
           <SC.ItemImageWrapper>
             <SC.ItemImg src={products.productImage} />
           </SC.ItemImageWrapper>
@@ -31,8 +29,9 @@ function Item() {
               label="Delete"
               backgroundColor="#ff0000"
               img="/icons/delete.svg"
-              handleClick={handleDelete}
+              handleClick={() => setOpenDeleteModal(true)}
             />
+            {openDeleteModal && <DeletePopup closeDeleteModal={setOpenDeleteModal} onSubmit={deleteProduct} />}
           </SC.Container>
         </SC.WrappItem>
       ))}

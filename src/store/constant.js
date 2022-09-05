@@ -1,5 +1,6 @@
 export const ADD_PRODUCT = "add-prodcuct";
 export const DELETE_PRODUCT = "delete-product";
+export const UPDATE_PRODUCT = "update-product";
 
 
 export const selectCategory = [
