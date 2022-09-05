@@ -7,7 +7,7 @@ export const initState = {
 function reducer(state, action) {
   switch (action.type) {
     case ADD_PRODUCT:
-      const products = [...state.products, action.payload];
+      const products = [...state.products, action.product];
       // Save data to localStorage
       localStorage.setItem("products", JSON.stringify(products));
       return {
