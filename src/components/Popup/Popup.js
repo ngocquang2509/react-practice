@@ -4,8 +4,9 @@ import * as SC from "./style"; // SC stand for Styled Components
 import Button from "../Button/Button";
 import { selectCategory } from "../../store";
 
-function Popup({ title, closeModal, onSubmit, products = {} }) {
+function Popup({ title, closeModal, handleAdd, products = {} }) {
   const [productValue, setProductValue] = useState(products);
+  const [showErr, setShowErr] = useState({});
 
   const handleOnChange = (e) => {
     const name = e.target.name;
@@ -14,8 +15,32 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
     setProductValue((values) => ({ ...values, [name]: value }));
   };
 
+  const validate = () => {
+    const err = {};
+    if (!productValue.productName) {
+      err.productName = "Product name is required";
+    }
+    if (!productValue.productPrice) {
+      err.productPrice = "Product price is required";
+    } else if (productValue.productPrice < 0) {
+      err.productPrice = "Product price must be greater than 0";
+    }
+    if (!productValue.productCategory) {
+      err.productCategory = "Product category is required";
+    }
+    if (!productValue.productImage) {
+      err.productImage = "Product image is required";
+    }
+    setShowErr(err);
+    if (Object.keys(err).length > 0) return false;
+    return true;
+  };
+
   const handleSubmit = (e) => {
-    onSubmit({ ...productValue });
+    e.preventDefault();
+    const validation = validate();
+    if(!validation) return;
+    handleAdd({ ...productValue });
     closeModal(false);
   };
 
@@ -40,6 +65,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
                 value={productValue.productName || ""}
                 onChange={handleOnChange}
               />
+              <SC.PopupError>{showErr.productName}</SC.PopupError>
             </SC.InputContainer>
             <SC.SelectContainer>
               <SC.PopupLabel>Category</SC.PopupLabel>
@@ -58,17 +84,19 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
                   </SC.SelectInput>
                 ))}
               </SC.SelectMenu>
+              <SC.PopupError>{showErr.productCategory}</SC.PopupError>
             </SC.SelectContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Price</SC.PopupLabel>
               <SC.PopupInput
                 type="text"
+                inputmode="numeric"
                 placeholder="Price"
                 name="productPrice"
                 value={productValue.productPrice || ""}
                 onChange={handleOnChange}
               />
-              {/* onChange={onChangeItem} value={itemValues.itemPrice} name='itemPrice' */}
+              <SC.PopupError>{showErr.productPrice}</SC.PopupError>
             </SC.InputContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Image</SC.PopupLabel>
@@ -79,6 +107,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
                 value={productValue.productImage || ""}
                 onChange={handleOnChange}
               />
+              <SC.PopupError>{showErr.productImage}</SC.PopupError>
             </SC.InputContainer>
           </SC.PopupBody>
           <SC.PopupFooter>
@@ -87,7 +116,7 @@ function Popup({ title, closeModal, onSubmit, products = {} }) {
               backgroundColor="red"
               handleClick={handleCancel}
             />
-            <Button type="button" label="Create" backgroundColor="green" />
+            <Button type="submit" label="Create" backgroundColor="green" />
           </SC.PopupFooter>
         </SC.PopupForm>
       </SC.PopupWrapper>

@@ -99,6 +99,12 @@ const PopupFooter = styled.div`
   margin-top: 30px;
 `;
 
+const PopupError = styled.div`
+  color: red;
+  font-size: 10px;
+  padding-left: 30px;
+`;
+
 export {
   PopupWrapper,
   PopupTitle,
@@ -113,4 +119,5 @@ export {
   SelectInput,
   SelectMenu,
   SelectContainer,
+  PopupError,
 };
