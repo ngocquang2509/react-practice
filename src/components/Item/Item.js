@@ -4,9 +4,11 @@ import * as SC from "./style";
 import Button from "../Button/Button";
 import { StoreContext } from "../../store";
 import DeletePopup from "../DeletePopup/DeletePopup";
+import Popup from "../Popup/Popup";
 
 const Item = ({ products }) => {
-  const { deleteProduct } = useContext(StoreContext);
+  const { deleteProduct, updateProduct } = useContext(StoreContext);
+  const [selectProductUpdate, setSelectProductUpdate] = useState(null);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   const handleShowDeleteModal = () => {
@@ -17,9 +19,17 @@ const Item = ({ products }) => {
     setOpenDeleteModal(false);
   };
 
+  const handleCloseModal = () => {
+    setSelectProductUpdate(null);
+  };
+
   const handleDeleteProduct = () => {
     deleteProduct(products.id);
     setOpenDeleteModal(false);
+  };
+
+  const handleUpdateProduct = (product) => {
+    updateProduct(product);
   };
 
   return (
@@ -37,6 +47,7 @@ const Item = ({ products }) => {
               label="Edit"
               backgroundColor="#ffcf00"
               img="/icons/edit.svg"
+              handleClick={() => setSelectProductUpdate(product)}
             />
             <Button
               label="Delete"
@@ -48,6 +59,14 @@ const Item = ({ products }) => {
               <DeletePopup
                 closeDeleteModal={handleCloseDeleteModal}
                 onSubmit={handleDeleteProduct}
+              />
+            )}
+            {!!selectProductUpdate && (
+              <Popup
+                products={selectProductUpdate}
+                closeModal={handleCloseModal}
+                onSubmit={handleUpdateProduct}
+                title="Update Product"
               />
             )}
           </SC.Container>
