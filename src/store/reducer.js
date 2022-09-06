@@ -1,7 +1,14 @@
-import { ADD_PRODUCT, DELETE_PRODUCT , UPDATE_PRODUCT} from "./constant";
+import {
+  ADD_PRODUCT,
+  DELETE_PRODUCT,
+  UPDATE_PRODUCT,
+  SEARCH_PRODUCT,
+  FILTER_LIST,
+} from "./constant";
 
 export const initState = {
   products: JSON.parse(localStorage.getItem("products")) || [],
+  filterList: [],
 };
 
 const reducer = (state, action) => {
@@ -24,23 +31,43 @@ const reducer = (state, action) => {
         products: productDelete,
       };
 
-      case UPDATE_PRODUCT:
-        const updateProduct = action.id;
-        const updateProducts = state.products.map((product) => {
-          if(product.id === updateProduct.id){
-            return updateProduct;
-          }
-          return product;
-        })
-        localStorage.setItem("products", JSON.stringify(updateProducts));
-        return {
-          ...state,
-          products: updateProducts,
+    case UPDATE_PRODUCT:
+      const updateProduct = action.product;
+      const updateProducts = state.products.map((product) => {
+        if (product.id === updateProduct.id) {
+          return updateProduct;
         }
+        return product;
+      });
+      localStorage.setItem("products", JSON.stringify(updateProducts));
+      return {
+        ...state,
+        products: updateProducts,
+      };
 
+    case SEARCH_PRODUCT:
+      return {
+        ...state,
+        products: action.products.filter(
+          (product) =>
+            product.name
+              .toLowerCase()
+              .search(action.name.toLowerCase().trim()) !== -1
+        ),
+      };
+
+    case FILTER_LIST:
+      const filter = action.category;
+      const filterList = state.products.filter((item) =>
+        filter.includes(item.category)
+      );
+      return {
+        ...state,
+        filterList: filterList,
+      };
     default:
       return state;
   }
-}
+};
 
 export default reducer;

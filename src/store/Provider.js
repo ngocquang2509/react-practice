@@ -14,6 +14,15 @@ function Provider({ children }) {
     deleteProduct: (id) => {
       dispatch(actions.deleteProduct(id));
     },
+    updateProduct: (product) => {
+      dispatch(actions.updateProduct(product));
+    },
+    searchProduct: (name) => {
+      dispatch(actions.searchProduct(name));
+    },
+    filterList: (category) => {
+      dispatch(actions.filterList(category));
+    },
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
