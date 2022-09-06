@@ -1,24 +1,37 @@
-import React, {useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
 import Button from "../Button/Button";
 import { StoreContext } from "../../store";
 import DeletePopup from "../DeletePopup/DeletePopup";
 
-const Item = () => {
-  const {products, deleteProduct} = useContext(StoreContext);
+const Item = ({ products }) => {
+  const { deleteProduct } = useContext(StoreContext);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+  const handleShowDeleteModal = () => {
+    setOpenDeleteModal(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setOpenDeleteModal(false);
+  };
+
+  const handleDeleteProduct = () => {
+    deleteProduct(products.id);
+    setOpenDeleteModal(false);
+  };
 
   return (
     <>
-      {products && products.map((products) => (
-        <SC.WrappItem key={products.id}>
+      {products.map((product) => (
+        <SC.WrappItem key={product.id}>
           <SC.ItemImageWrapper>
-            <SC.ItemImg src={products.productImage} />
+            <SC.ItemImg src={product.productImage} />
           </SC.ItemImageWrapper>
-          <SC.ItemName>{products.productName}</SC.ItemName>
-          <SC.ItemCategory as="p">{products.productCategory}</SC.ItemCategory>
-          <SC.ItemPrice as="p">{products.productPrice} VND</SC.ItemPrice>
+          <SC.ItemName>{product.productName}</SC.ItemName>
+          <SC.ItemCategory as="p">{product.productCategory}</SC.ItemCategory>
+          <SC.ItemPrice as="p">{product.productPrice} VND</SC.ItemPrice>
           <SC.Container>
             <Button
               label="Edit"
@@ -29,15 +42,20 @@ const Item = () => {
               label="Delete"
               backgroundColor="#ff0000"
               img="/icons/delete.svg"
-              handleClick={() => setOpenDeleteModal(true)}
+              handleClick={handleShowDeleteModal}
             />
-            {openDeleteModal && <DeletePopup closeDeleteModal={setOpenDeleteModal} onSubmit={deleteProduct} />}
+            {!!openDeleteModal && (
+              <DeletePopup
+                closeDeleteModal={handleCloseDeleteModal}
+                onSubmit={handleDeleteProduct}
+              />
+            )}
           </SC.Container>
         </SC.WrappItem>
       ))}
     </>
   );
-}
+};
 
 Item.propTypes = {
   name: PropTypes.string,

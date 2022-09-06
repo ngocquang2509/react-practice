@@ -8,7 +8,7 @@ import { StoreContext } from "../../store";
 
 function ListProduct() {
   const [openModal, setOpenModal] = useState(false);
-  const { addProduct } = useContext(StoreContext);
+  const { addProduct, products } = useContext(StoreContext);
 
   return (
     <ListProductWrap>
@@ -20,9 +20,15 @@ function ListProduct() {
         img="/icons/add.svg"
         handleClick={() => setOpenModal(true)}
       />
-      {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct} title='Create Product' />}
+      {openModal && (
+        <Popup
+          closeModal={setOpenModal}
+          onSubmit={addProduct}
+          title="Create Product"
+        />
+      )}
       <ListProductItem>
-        <Item/>
+        <Item products={products} />
       </ListProductItem>
     </ListProductWrap>
   );
