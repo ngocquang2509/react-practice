@@ -8,7 +8,10 @@ import { StoreContext } from "../../store";
 
 function ListProduct() {
   const [openModal, setOpenModal] = useState(false);
-  const { addProduct, products } = useContext(StoreContext);
+  const { addProduct, products, filterList } = useContext(StoreContext);
+
+  console.log("products", products);
+  console.log("filterList", filterList);
 
   return (
     <ListProductWrap>
@@ -28,7 +31,7 @@ function ListProduct() {
         />
       )}
       <ListProductItem>
-        <Item products={products} />
+        <Item products={filterList.length === 0 ? products : filterList} />
       </ListProductItem>
     </ListProductWrap>
   );

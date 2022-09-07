@@ -11,6 +11,8 @@ export const initState = {
   filterList: [],
 };
 
+console.log("abc", initState.products);
+
 const reducer = (state, action) => {
   switch (action.type) {
     case ADD_PRODUCT:
@@ -48,9 +50,9 @@ const reducer = (state, action) => {
     case SEARCH_PRODUCT:
       return {
         ...state,
-        products: action.products.filter(
+        filterList: state.products.filter(
           (product) =>
-            product.name
+            product.productName
               .toLowerCase()
               .search(action.name.toLowerCase().trim()) !== -1
         ),
