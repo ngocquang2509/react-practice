@@ -39,7 +39,8 @@ const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validation = validate();
-    if(!validation) return;
+    if (!validation) return;
+    productValue.id = Date.now();
     onSubmit({ ...productValue });
     closeModal(false);
   };
@@ -122,7 +123,7 @@ const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
       </SC.PopupWrapper>
     </>
   );
-}
+};
 
 Popup.propTypes = {
   title: PropTypes.string,
