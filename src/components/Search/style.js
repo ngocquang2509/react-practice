@@ -20,4 +20,9 @@ const SearchBar = styled.input`
     no-repeat 13px center;
 `;
 
-export { AppHeader, SearchBar };
+const SearchButton = styled.button`
+  border: none;
+  cursor: pointer;
+`;
+
+export { AppHeader, SearchBar, SearchButton };
