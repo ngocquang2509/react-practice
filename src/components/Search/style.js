@@ -1,15 +1,9 @@
 import styled from "styled-components";
 
-const AppHeader = styled.div`
-  position: absolute;
-  left: 300px;
-  top: 0;
-  background: #fff;
-  width: calc(100% - 300px);
-  height: auto;
-`;
 
 const SearchBar = styled.input`
+  position: absolute;
+  left: 350px;
   border: 1px solid #555;
   border-radius: 50px;
   width: 450px;
@@ -25,4 +19,4 @@ const SearchButton = styled.button`
   cursor: pointer;
 `;
 
-export { AppHeader, SearchBar, SearchButton };
+export {SearchBar, SearchButton };

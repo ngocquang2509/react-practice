@@ -2,7 +2,6 @@ import {
   ADD_PRODUCT,
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
-  SEARCH_PRODUCT,
   FILTER_LIST,
 } from "./constant";
 
@@ -45,17 +44,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         products: updateProducts,
-      };
-
-    case SEARCH_PRODUCT:
-      return {
-        ...state,
-        filterList: state.products.filter(
-          (product) =>
-            product.productName
-              .toLowerCase()
-              .search(action.name.toLowerCase().trim()) !== -1
-        ),
       };
 
     case FILTER_LIST:

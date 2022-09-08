@@ -8,6 +8,7 @@ function Provider({ children }) {
 
   const value = {
     products: state.products,
+    filterList: state.filterList,
     addProduct: ({ ...product }) => {
       dispatch(actions.addProduct(product));
     },
@@ -17,10 +18,7 @@ function Provider({ children }) {
     updateProduct: (product) => {
       dispatch(actions.updateProduct(product));
     },
-    searchProduct: (name) => {
-      dispatch(actions.searchProduct(name));
-    },
-    filterList: (category) => {
+    filterProduct: (category) => {
       dispatch(actions.filterList(category));
     },
   };
