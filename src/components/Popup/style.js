@@ -68,6 +68,10 @@ const SelectMenu = styled.select`
   border-radius: 50px;
   margin: 10px;
   padding-left: 20px;
+  &:hover, &:focus , &:active {
+    border-color: #e85f99;
+    box-shadow: 0 0 0 3px hsla(335, 75%, 64%, .25)
+  }
 `;
 const SelectInput = styled.option`
   width: 570px;
@@ -89,6 +93,10 @@ const PopupInput = styled.input`
   border-radius: 50px;
   margin: 10px;
   padding-left: 20px;
+  &:hover, &:focus , &:active {
+    border-color: #e85f99;
+    box-shadow: 0 0 0 3px hsla(335, 75%, 64%, .25)
+  }
 `;
 
 const PopupFooter = styled.div`
