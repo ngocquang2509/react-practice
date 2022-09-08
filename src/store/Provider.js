@@ -3,7 +3,7 @@ import Context from "./Context";
 import reducer, { initState } from "./reducer";
 import { actions } from ".";
 
-function Provider({ children }) {
+const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   const value = {

@@ -1,24 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Item from "../Item/Item";
-import { ListProductTitle, ListProductWrap, ListProductItem } from "./style";
+import * as SC from "./style";
 import Button from "../Button/Button";
 import Popup from "../Popup/Popup";
 import Search from "../Search/Search";
 
 import { StoreContext } from "../../store";
 
-function ListProduct() {
+const ListProduct = () => {
     const [openModal, setOpenModal] = useState(false);
     const [query, setQuery] = useState("");
     const { addProduct, products, filterList } = useContext(StoreContext);
+    const typingTimeoutRef = useRef(null);
 
     const handleSearchInput = (e) => {
-        setQuery(e.target.value);
+        if (typingTimeoutRef.current) {
+            clearTimeout(typingTimeoutRef.current);
+        }
+
+        typingTimeoutRef.current = setTimeout(() => {
+            const value = e.target.value.trim();
+            setQuery(value);
+        }, 500);
     };
 
     return (
-        <ListProductWrap>
-            <ListProductTitle>List Product</ListProductTitle>
+        <SC.ListProductWrap>
+            <SC.ListProductTitle>List Product</SC.ListProductTitle>
             <Search handleChange={handleSearchInput} />
             <Button
                 mg="10px 100px"
@@ -34,15 +42,15 @@ function ListProduct() {
                     title="Create Product"
                 />
             )}
-            <ListProductItem>
+            <SC.ListProductItem>
                 <Item
                     products={filterList.length === 0 ? products : filterList}
                     query={query}
                 />
-                {console.log("query", query)}
-            </ListProductItem>
-        </ListProductWrap>
+                {console.log("check", products.length)}
+            </SC.ListProductItem>
+        </SC.ListProductWrap>
     );
-}
+};
 
 export default ListProduct;
