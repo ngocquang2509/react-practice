@@ -9,41 +9,31 @@ import Popup from "../Popup/Popup";
 const Item = ({ products, query }) => {
     const { deleteProduct, updateProduct } = useContext(StoreContext);
     const [selectProductUpdate, setSelectProductUpdate] = useState(null);
-    const [openDeleteModal, setOpenDeleteModal] = useState(false);
+    const [selectProductDelete, setSelectProductDelete] = useState(null);
 
-    const handleShowDeleteModal = () => {
-        setOpenDeleteModal(true);
+    const handelOpenDeletePopup = (id) => {
+        setSelectProductDelete(id);
     };
 
-    const handleCloseDeleteModal = () => {
-        setOpenDeleteModal(false);
-    };
-
-    const handleCloseModal = () => {
+    const handleClosePopup = () => {
         setSelectProductUpdate(null);
+        setSelectProductDelete(null);
     };
 
-    const handleDeleteProduct = () => {
-        deleteProduct(products.id);
-        setOpenDeleteModal(false);
+    const handleDelete = () => {
+        deleteProduct(selectProductDelete);
+        setSelectProductDelete(null);
     };
 
-    const handleUpdateProduct = (product) => {
+    const handleUpdate = (product) => {
         updateProduct(product);
     };
-
-    // console.log(
-    //     "search",
-    //     products.filter((item) => item.productName.toLowerCase().includes("a"))
-    // );
 
     return (
         <>
             {products
                 .filter((product) =>
-                    product.productName
-                        .toLowerCase()
-                        .includes(query)
+                    product.productName.toLowerCase().includes(query)
                 )
                 .map((product) => (
                     <SC.WrappItem key={product.id}>
@@ -70,19 +60,21 @@ const Item = ({ products, query }) => {
                                 label="Delete"
                                 backgroundColor="#ff0000"
                                 img="/icons/delete.svg"
-                                handleClick={handleShowDeleteModal}
+                                handleClick={() =>
+                                    handelOpenDeletePopup(product.id)
+                                }
                             />
-                            {!!openDeleteModal && (
+                            {!!selectProductDelete && (
                                 <DeletePopup
-                                    closeDeleteModal={handleCloseDeleteModal}
-                                    onSubmit={handleDeleteProduct}
+                                    closeDeleteModal={handleClosePopup}
+                                    onSubmit={handleDelete}
                                 />
                             )}
                             {!!selectProductUpdate && (
                                 <Popup
                                     products={selectProductUpdate}
-                                    closeModal={handleCloseModal}
-                                    onSubmit={handleUpdateProduct}
+                                    closeModal={handleClosePopup}
+                                    onIsUpdate={handleUpdate}
                                     title="Update Product"
                                 />
                             )}
