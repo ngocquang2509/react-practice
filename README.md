@@ -16,7 +16,7 @@ This document provides information about ReactJS practice. Build List of product
 # Plan:
 
 -   Plan on github [project](https://github.com/users/ngocquang2509/projects/1)
--   [Estimation]()
+-   [Estimation](https://docs.google.com/document/d/1M5Iyz7WvfLT4bIoC2HYgJFENyMZqxgkY8HdDGOZ-87A/edit#)
 
 # Targets:
 
