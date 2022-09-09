@@ -3,11 +3,12 @@ import Context from "./Context";
 import reducer, { initState } from "./reducer";
 import { actions } from ".";
 
-function Provider({ children }) {
+const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   const value = {
     products: state.products,
+    filterList: state.filterList,
     addProduct: ({ ...product }) => {
       dispatch(actions.addProduct(product));
     },
@@ -17,10 +18,7 @@ function Provider({ children }) {
     updateProduct: (product) => {
       dispatch(actions.updateProduct(product));
     },
-    searchProduct: (name) => {
-      dispatch(actions.searchProduct(name));
-    },
-    filterList: (category) => {
+    filterProduct: (category) => {
       dispatch(actions.filterList(category));
     },
   };

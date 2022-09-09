@@ -4,14 +4,11 @@ import * as SC from "./style"; // SC stand for Styled Components
 
 const DeletePopup = ({ closeDeleteModal, onSubmit }) => {
 
-    const handleClose = () => {
-        closeDeleteModal(false);
-    }
   return (
     <>
       <SC.DeletePopupOverlay />
       <SC.DeletePopupWrapper>
-        <SC.DeletePopupClose onClick={handleClose}>X</SC.DeletePopupClose>
+        <SC.DeletePopupClose onClick={closeDeleteModal}>X</SC.DeletePopupClose>
         <SC.DeletePopupTitle>Delete Product</SC.DeletePopupTitle>
         <SC.DeletePopupBody>
           <div>
@@ -19,7 +16,7 @@ const DeletePopup = ({ closeDeleteModal, onSubmit }) => {
           </div>
         </SC.DeletePopupBody>
         <SC.DeletePopupFooter>
-            <Button label="Cancel" backgroundColor='red' handleClick={handleClose}/>
+            <Button label="Cancel" backgroundColor='red' handleClick={closeDeleteModal}/>
             <Button yes handleClick={onSubmit} label="Delete" backgroundColor='green'/>
         </SC.DeletePopupFooter>
       </SC.DeletePopupWrapper>

@@ -2,7 +2,6 @@ import {
   ADD_PRODUCT,
   DELETE_PRODUCT,
   UPDATE_PRODUCT,
-  SEARCH_PRODUCT,
   FILTER_LIST,
 } from "./constant";
 
@@ -19,11 +18,6 @@ export const deleteProduct = (id) => ({
 export const updateProduct = (product) => ({
   type: UPDATE_PRODUCT,
   product,
-});
-
-export const searchProduct = (name) => ({
-  type: SEARCH_PRODUCT,
-  name,
 });
 
 export const filterList = (category) => ({

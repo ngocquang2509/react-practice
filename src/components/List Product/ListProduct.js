@@ -1,40 +1,56 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Item from "../Item/Item";
-import { ListProductTitle, ListProductWrap, ListProductItem } from "./style";
+import * as SC from "./style";
 import Button from "../Button/Button";
 import Popup from "../Popup/Popup";
+import Search from "../Search/Search";
 
 import { StoreContext } from "../../store";
 
-function ListProduct() {
-  const [openModal, setOpenModal] = useState(false);
-  const { addProduct, products, filterList } = useContext(StoreContext);
+const ListProduct = () => {
+    const [openModal, setOpenModal] = useState(false);
+    const [query, setQuery] = useState("");
+    const { addProduct, products, filterList } = useContext(StoreContext);
+    const typingTimeoutRef = useRef(null);
 
-  console.log("products", products);
-  console.log("filterList", filterList);
+    const handleSearchInput = (e) => {
+        if (typingTimeoutRef.current) {
+            clearTimeout(typingTimeoutRef.current);
+        }
 
-  return (
-    <ListProductWrap>
-      <ListProductTitle>List Product</ListProductTitle>
-      <Button
-        mg="10px 100px"
-        label="Create"
-        backgroundColor="#418CD1"
-        img="/icons/add.svg"
-        handleClick={() => setOpenModal(true)}
-      />
-      {openModal && (
-        <Popup
-          closeModal={setOpenModal}
-          onSubmit={addProduct}
-          title="Create Product"
-        />
-      )}
-      <ListProductItem>
-        <Item products={filterList.length === 0 ? products : filterList} />
-      </ListProductItem>
-    </ListProductWrap>
-  );
-}
+        typingTimeoutRef.current = setTimeout(() => {
+            const value = e.target.value.trim();
+            setQuery(value);
+        }, 500);
+    };
+
+    return (
+        <SC.ListProductWrap>
+            <SC.ListProductTitle>List Product</SC.ListProductTitle>
+            <Search handleChange={handleSearchInput} />
+            <Button
+                mg="10px 100px"
+                label="Create"
+                backgroundColor="#418CD1"
+                img="/icons/add.svg"
+                handleClick={() => setOpenModal(true)}
+            />
+            {openModal && (
+                <Popup
+                    closeModal={setOpenModal}
+                    onSubmit={addProduct}
+                    title="Create Product"
+                />
+            )}
+            <SC.ListProductItem>
+                <Item
+                    products={filterList.length === 0 ? products : filterList}
+                    query={query}
+                />
+                {console.log("check", products.length)}
+            </SC.ListProductItem>
+        </SC.ListProductWrap>
+    );
+};
 
 export default ListProduct;
