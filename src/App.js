@@ -1,7 +1,6 @@
-import React from "react";
-
-import ListProduct from "./components/List Product/ListProduct";
-import SideBar from "./components/Sidebar/Sidebar";
+import React from 'react'
+import SideBar from './components/layout/Sidebar/Sidebar'
+import ListProduct from './components/List Product/ListProduct'
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
       <SideBar />
       <ListProduct />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

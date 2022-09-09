@@ -1,5 +1,5 @@
-import React from "react";
-import { LeftSideBar, BrandName, SideBtn, SideBtnText } from "./style";
+import React from 'react'
+import { LeftSideBar, BrandName, SideBtn, SideBtnText } from './style'
 
 function SideBar() {
   return (
@@ -18,7 +18,7 @@ function SideBar() {
         <SideBtnText>Discount</SideBtnText>
       </SideBtn>
     </LeftSideBar>
-  );
+  )
 }
 
-export default SideBar;
+export default SideBar
