@@ -3,7 +3,7 @@ import {
     DELETE_PRODUCT,
     UPDATE_PRODUCT,
     FILTER_LIST,
-} from "./constant";
+} from "../constants/constant";
 
 export const initState = {
     products: JSON.parse(localStorage.getItem("products")) || [],

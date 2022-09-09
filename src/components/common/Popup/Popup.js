@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style"; // SC stand for Styled Components
 import Button from "../Button/Button";
-import { selectCategory, StoreContext } from "../../store";
+import { selectCategory, StoreContext } from "../../../store";
 
 const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
     const [productValue, setProductValue] = useState(products);

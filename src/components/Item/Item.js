@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import * as SC from "./style";
-import Button from "../Button/Button";
+import Button from "../common/Button/Button";
 import { StoreContext } from "../../store";
 import DeletePopup from "../DeletePopup/DeletePopup";
-import Popup from "../Popup/Popup";
+import Popup from "../common/Popup/Popup";
 
 const Item = ({ products, query }) => {
     const { deleteProduct, updateProduct } = useContext(StoreContext);
@@ -17,6 +17,9 @@ const Item = ({ products, query }) => {
 
     const handleClosePopup = () => {
         setSelectProductUpdate(null);
+    };
+
+    const handleCloseDeletePopup = () => {
         setSelectProductDelete(null);
     };
 
@@ -66,7 +69,7 @@ const Item = ({ products, query }) => {
                             />
                             {!!selectProductDelete && (
                                 <DeletePopup
-                                    closeDeleteModal={handleClosePopup}
+                                    closeDeleteModal={handleCloseDeletePopup}
                                     onSubmit={handleDelete}
                                 />
                             )}

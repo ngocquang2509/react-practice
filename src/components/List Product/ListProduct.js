@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useState } from "react";
 import Item from "../Item/Item";
 import * as SC from "./style";
-import Button from "../Button/Button";
-import Popup from "../Popup/Popup";
+import Button from "../common/Button/Button";
+import Popup from "../common/Popup/Popup";
 import Search from "../Search/Search";
 
 import { StoreContext } from "../../store";
