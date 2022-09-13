@@ -1,26 +1,21 @@
-import {
-    ADD_PRODUCT,
-    DELETE_PRODUCT,
-    UPDATE_PRODUCT,
-    FILTER_LIST,
-} from "../constants/constant";
+import { PRODUCT } from '../constants'
 
-export const addProduct = (product) => ({
-    type: ADD_PRODUCT,
-    product,
-});
+export const addProduct = product => ({
+  type: PRODUCT.ADD,
+  product
+})
 
-export const deleteProduct = (id) => ({
-    type: DELETE_PRODUCT,
-    id,
-});
+export const deleteProduct = id => ({
+  type: PRODUCT.DELETE,
+  id
+})
 
-export const updateProduct = (product) => ({
-    type: UPDATE_PRODUCT,
-    product,
-});
+export const updateProduct = product => ({
+  type: PRODUCT.UPDATE,
+  product
+})
 
-export const filterList = (category) => ({
-    type: FILTER_LIST,
-    category,
-});
+export const filterList = category => ({
+  type: PRODUCT.FILTER,
+  category
+})
