@@ -1,78 +1,139 @@
 # ReactJS-training
 
-# Overview:
+## Overview:
 
 This document provides information about ReactJS practice. Build List of products website
 
-# Technical:
+## Technical:
 
--   ReactJS
--   Styled-components
+- ReactJS
+- Styled-components
 
-# Timeline:
+## Timeline:
 
-25 working days
+- 25 working days
 
-# Plan:
+## Plan:
 
--   Plan on github [project](https://github.com/users/ngocquang2509/projects/1)
--   [Estimation](https://docs.google.com/document/d/1M5Iyz7WvfLT4bIoC2HYgJFENyMZqxgkY8HdDGOZ-87A/edit#)
+- Plan on github [project](https://github.com/users/ngocquang2509/projects/1)
+- [Estimation](https://docs.google.com/document/d/1M5Iyz7WvfLT4bIoC2HYgJFENyMZqxgkY8HdDGOZ-87A/edit#)
 
-# Targets:
+## Targets:
 
--   Build an application for managing product using React
--   Using React Hooks
--   Apply knowledge of React state management
--   Check re-render and using hook to avoid re-render.
+- Build an application for managing product using React
+- Using React Hooks
+- Apply useContext + hooks for state management.
+- Apply styled-components
+- Apply Storybook
 
-# Development environment:
+## Development environment:
 
--   Node: v16.16.0
--   npm: v8.11.0
--   react: v18.2.0
+- Node: v16.16.0
+- npm: v8.11.0
+- react: v18.2.0
 
-# Main app features:
+## Main app features:
 
--   Users could create new products
--   Users could update products
--   Users could delete products by id
--   Users could search the list of products by name
+- Users could create new products
+- Users could update products
+- Users could delete products by id
+- Users could search the list of products by name
 
-# REFERENCES:
+## REFERENCES:
 
--   [ReactJS](https://reactjs.org/docs/thinking-in-react.html)
--   [Styled-Component](https://styled-components.com/docs)
+- [ReactJS](https://reactjs.org/docs/thinking-in-react.html)
+- [Styled-Component](https://styled-components.com/docs)
 
-# Installation:
+## Design
 
--   Step 1 : Clone repository
+- [Figma](https://www.figma.com/file/VKl2P19Tl51AfdCXVj1YEr/React-practice)
+
+## Folder structure
+
+```bash
+├── src
+    ├── actions
+        └── product.js
+    ├── components
+        ├── common
+            ├── Button
+                ├── index.js
+                ├── Button.stories.js
+                └── style.js
+            ├── Popup
+                ├── index.js
+                ├── Popup.stories.js
+                └── style.js
+        ├── DeletePopup
+            ├── index.js
+            └── style.js
+        ├── Item
+            ├── index.js
+            ├── Item.stories.js
+            └── style.js
+        ├── ListProduct
+            ├── index.js
+            └── style.js
+        ├── Search
+            ├── index.js
+            └── style.js
+    ├── constants
+        └── index.js
+    ├── layouts
+        ├── Header
+            ├── index.js
+            └── style.js
+        └── Sidebar
+            ├── index.js
+            └── style.js
+    ├── reducers
+        └── product.js
+    ├── store
+        ├── Context.js
+        ├── index.js
+        └── Provider.js
+```
+
+## Installation:
+
+- Step 1 : Clone repository
 
 ```bash
 git clone https://github.com/ngocquang2509/react-training.git
 ```
 
--   Step 2 : Change Folder Directory
+- Step 2 : Change Folder Directory
 
 ```bash
 cd react-training
 ```
 
--   Step 3 :Checkout branch
+- Step 3 :Checkout branch
 
 ```bash
 git checkout develop
 ```
 
--   Step 4 : Install npm packages
+- Step 4 : Install npm packages
 
 ```bash
 npm i
 ```
 
--   Step 5 : Run project
+- Step 5 : Run project
 
 ```bash
 npm start
 ```
 
--   Step 6: Open http://localhost:3000/ in your browser to see the Web application.
+- Step 6: Open in browser
+
+```
+http://localhost:3000
+```
+
+## Author
+
+- Quang Ngoc
+- Email: ngocquang2509@gmail.com
+- Contact: 0326086599
