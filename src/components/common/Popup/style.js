@@ -5,8 +5,8 @@ const PopupOverlay = styled.div`
   top: 0;
   left: 0;
   z-index: 1040;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #000;
   opacity: 0.5;
 `
@@ -15,11 +15,10 @@ const PopupWrapper = styled.div`
   position: fixed;
   left: 700px;
   top: 150px;
-  width: 750px;
+  max-width: 750px;
   height: 600px;
+  margin: auto;
   z-index: 1050;
-  overflow-x: hidden;
-  overflow-y: hidden;
   outline: 0;
   background: #ffffff;
   border: 1px solid #000000;

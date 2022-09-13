@@ -1,26 +1,28 @@
-import { PRODUCT } from '../constants'
+import { KEY, PRODUCT } from '../constants'
+import { saveLocalStorage } from '../helper'
 
 export const initState = {
-  products: JSON.parse(localStorage.getItem('products')) || [],
+  products: JSON.parse(localStorage.getItem(KEY)) || [],
   filterList: []
 }
 
 const reducer = (state, action) => {
   switch (action.type) {
     case PRODUCT.ADD:
-      const products = [...state.products, action.product]
+      const addProduct = [...state.products, action.product]
       // Save data to localStorage
-      localStorage.setItem('products', JSON.stringify(products))
+      saveLocalStorage(addProduct)
       return {
         ...state,
-        products: products
+        products: addProduct
       }
     case PRODUCT.DELETE:
-      const productDelete = state.products.filter(product => product.id !== action.id)
-      localStorage.setItem('products', JSON.stringify(productDelete))
+      const deleteProduct = state.products.filter(product => product.id !== action.id)
+      // Delete data from localStorage
+      saveLocalStorage(deleteProduct)
       return {
         ...state,
-        products: productDelete
+        products: deleteProduct
       }
 
     case PRODUCT.UPDATE:
@@ -31,18 +33,11 @@ const reducer = (state, action) => {
         }
         return product
       })
-      localStorage.setItem('products', JSON.stringify(updateProducts))
+      // Update data from localStorage
+      saveLocalStorage(updateProducts)
       return {
         ...state,
         products: updateProducts
-      }
-
-    case PRODUCT.FILTER:
-      const filter = action.category
-      const filterList = state.products.filter(item => filter.includes(item.category))
-      return {
-        ...state,
-        filterList: filterList
       }
     default:
       return state

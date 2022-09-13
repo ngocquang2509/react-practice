@@ -1,8 +1,7 @@
 export const PRODUCT = {
   ADD: 'add-prodcuct',
   UPDATE: 'update-product',
-  DELETE: 'delete-product',
-  FILTER: 'filter-product'
+  DELETE: 'delete-product'
 }
 
 export const selectCategory = [
@@ -12,3 +11,5 @@ export const selectCategory = [
   { id: 4, value: 'Jeans', label: 'Jeans' },
   { id: 5, value: 'Accesories', label: 'Accesories' }
 ]
+
+export const KEY = 'products'

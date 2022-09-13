@@ -18,9 +18,6 @@ const Provider = ({ children }) => {
     updateProduct: product => {
       dispatch(actions.updateProduct(product))
     },
-    filterProduct: category => {
-      dispatch(actions.filterList(category))
-    }
   }
 
   return <Context.Provider value={value}>{children}</Context.Provider>
