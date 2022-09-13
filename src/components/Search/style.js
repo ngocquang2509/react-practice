@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 
 const SearchBar = styled.input`
-  position: absolute;
-  left: 350px;
+  position: fixed;
+  left: 600px;
+  top: 30px;
   border: 1px solid #555;
   border-radius: 50px;
   width: 450px;

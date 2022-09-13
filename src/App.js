@@ -2,11 +2,13 @@ import React from 'react'
 import SideBar from './layouts/Sidebar'
 import ListProduct from './components/List Product'
 import { StoreProvider } from './store'
+import Header from './layouts/Header'
 
 function App() {
   return (
     <>
       <SideBar />
+      <Header/>
       <StoreProvider>
         <ListProduct />
       </StoreProvider>

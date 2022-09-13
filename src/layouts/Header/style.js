@@ -1,12 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-const AppHeader = styled.div`
-  position: absolute;
+const Header = styled.div`
+  position: fixed;
   left: 300px;
   top: 0;
   background: #fff;
   width: calc(100% - 300px);
-  height: auto;
-`;
+  height: 100px;
+`
 
-export { AppHeader };
+const BrandName = styled.div`
+  font-size: 24px;
+  float: left;
+  color: #000;
+  padding: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+`
+const HeaderRight = styled.div`
+  float: right;
+  padding: 30px;
+`
+const HeaderLink = styled.a`
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 20px;
+  text-decoration: none;
+  &:hover {
+    background: #ddd;
+  }
+`
+
+export { Header, BrandName, HeaderRight, HeaderLink }

@@ -1,10 +1,10 @@
 import React from 'react'
 import { LeftSideBar, BrandName, SideBtn, SideBtnText } from './style'
 
-function SideBar() {
+const SideBar = () => {
   return (
     <LeftSideBar>
-      <BrandName>Manage Product</BrandName>
+      <BrandName>Logo</BrandName>
       <SideBtn>
         <img src="/icons/home.svg" alt="home" />
         <SideBtnText>Home</SideBtnText>
