@@ -6,7 +6,7 @@ function Button({ label, backgroundColor, textColor, handleClick, img, mg }) {
   return (
     <SC.Button margin={mg} onClick={handleClick} bgColor={backgroundColor} color={textColor}>
       <img src={img} alt="" />
-      {label}
+      <SC.Label>{label}</SC.Label>
     </SC.Button>
   )
 }

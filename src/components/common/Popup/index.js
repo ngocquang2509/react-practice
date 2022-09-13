@@ -74,7 +74,7 @@ const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
               />
               <SC.PopupError>{showErr.productName}</SC.PopupError>
             </SC.InputContainer>
-            <SC.SelectContainer>
+            <SC.InputContainer>
               <SC.PopupLabel>Category</SC.PopupLabel>
               <SC.SelectMenu
                 name="productCategory"
@@ -88,7 +88,7 @@ const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
                 ))}
                 <SC.PopupError>{showErr.productCategory}</SC.PopupError>
               </SC.SelectMenu>
-            </SC.SelectContainer>
+            </SC.InputContainer>
             <SC.InputContainer>
               <SC.PopupLabel>Price</SC.PopupLabel>
               <SC.PopupInput
