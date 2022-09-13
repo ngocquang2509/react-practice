@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
 import { StoreContext } from '../../store'
 import PropTypes from 'prop-types'
-import Button from '../common/Button/Button'
-import DeletePopup from '../DeletePopup/DeletePopup'
-import Popup from '../common/Popup/Popup'
+import Button from '../common/Button'
+import DeletePopup from '../DeletePopup'
+import Popup from '../common/Popup'
 import * as SC from './style' // SC is stands for Styled-Components
 
 const Item = ({ products, query }) => {
@@ -57,10 +57,8 @@ const Item = ({ products, query }) => {
                 img="/icons/delete.svg"
                 handleClick={() => handelOpenDeletePopup(product.id)}
               />
-              {!!selectProductDelete && (
-                <DeletePopup closeDeleteModal={handleCloseDeletePopup} onSubmit={handleDelete} />
-              )}
-              {!!selectProductUpdate && (
+              {selectProductDelete && <DeletePopup closeDeleteModal={handleCloseDeletePopup} onSubmit={handleDelete} />}
+              {selectProductUpdate && (
                 <Popup
                   products={selectProductUpdate}
                   closeModal={handleClosePopup}

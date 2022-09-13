@@ -1,6 +1,6 @@
 import React from 'react'
-import SideBar from './components/layout/Sidebar/Sidebar'
-import ListProduct from './components/List Product/ListProduct'
+import SideBar from './layouts/Sidebar'
+import ListProduct from './components/List Product'
 
 function App() {
   return (

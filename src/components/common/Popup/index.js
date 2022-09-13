@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { selectCategory, StoreContext } from '../../../store'
-import Button from '../Button/Button'
+import Button from '../Button'
 import * as SC from './style' // SC stand for Styled Components
 
 const Popup = ({ title, closeModal, onSubmit, products = {} }) => {

@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useState } from 'react'
-import Item from '../Item/Item'
-import Button from '../common/Button/Button'
-import Popup from '../common/Popup/Popup'
-import Search from '../Search/Search'
+import Item from '../Item'
+import Button from '../common/Button'
+import Popup from '../common/Popup'
+import Search from '../Search'
 import * as SC from './style' // SC is stands for Styled-Components
 
 import { StoreContext } from '../../store'
@@ -38,7 +38,6 @@ const ListProduct = () => {
       {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct} title="Create Product" />}
       <SC.ListProductItem>
         <Item products={filterList.length === 0 ? products : filterList} query={query} />
-        {console.log('check', products.length)}
       </SC.ListProductItem>
     </SC.ListProductWrap>
   )
