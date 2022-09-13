@@ -4,7 +4,9 @@ import { LeftSideBar, BrandName, SideBtn, SideBtnText } from './style'
 const SideBar = () => {
   return (
     <LeftSideBar>
-      <BrandName>Logo</BrandName>
+      <BrandName>
+      <img src='/icons/logo.svg' alt='logo' />
+      </BrandName>
       <SideBtn>
         <img src="/icons/home.svg" alt="home" />
         <SideBtnText>Home</SideBtnText>
