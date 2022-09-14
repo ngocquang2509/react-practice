@@ -11,7 +11,7 @@ This document provides information about ReactJS practice. Build List of product
 
 ## Timeline:
 
-- 25 working days
+- 20 working days
 
 ## Plan:
 
@@ -79,6 +79,8 @@ This document provides information about ReactJS practice. Build List of product
             └── style.js
     ├── constants
         └── index.js
+    ├── helpers
+        └── index.js
     ├── layouts
         ├── Header
             ├── index.js
@@ -92,6 +94,17 @@ This document provides information about ReactJS practice. Build List of product
         ├── Context.js
         ├── index.js
         └── Provider.js
+    ├──.editorconfig
+    ├──.eslintignore
+    ├──.eslintconfig
+    ├──.gitignore
+    ├──.npmrc
+    ├──.prettierignore
+    ├──.prettierrc
+    ├──package-lock.json
+    ├──package.json
+    ├──README.md
+
 ```
 
 ## Installation:
