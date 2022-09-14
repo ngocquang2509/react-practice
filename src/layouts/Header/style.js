@@ -24,10 +24,12 @@ const HeaderRight = styled.div`
 const HeaderLink = styled.a`
   font-size: 18px;
   font-weight: 600;
-  padding: 0 20px;
+  padding: 10px 20px;
   text-decoration: none;
+  color: #333;
   &:hover {
     background: #ddd;
+    border-radius: 5px;
   }
 `
 

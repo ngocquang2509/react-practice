@@ -125,7 +125,9 @@ const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
 
 Popup.propTypes = {
   title: PropTypes.string,
-  label: PropTypes.string
+  onSubmit: PropTypes.func,
+  closeModal: PropTypes.func,
+  products: PropTypes.object
 }
 
 export default Popup

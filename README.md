@@ -11,7 +11,8 @@ This document provides information about ReactJS practice. Build List of product
 
 ## Timeline:
 
-- 20 working days
+- Estimate time: 14 working days
+- Actual time: 20 working days
 
 ## Plan:
 
@@ -106,6 +107,12 @@ This document provides information about ReactJS practice. Build List of product
     ├──README.md
 
 ```
+
+## Issues
+
+- Avoid re-rendering is not optimized
+- Not support responsive yet
+-
 
 ## Installation:
 

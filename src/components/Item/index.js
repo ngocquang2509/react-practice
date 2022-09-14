@@ -43,7 +43,7 @@ const Item = ({ products, query }) => {
             </SC.ItemImageWrapper>
             <SC.ItemName>{product.productName}</SC.ItemName>
             <SC.ItemCategory as="p">{product.productCategory}</SC.ItemCategory>
-            <SC.ItemPrice as="p">{product.productPrice} VND</SC.ItemPrice>
+            <SC.ItemPrice as="p">${product.productPrice}</SC.ItemPrice>
             <SC.Container>
               <Button
                 label="Edit"
