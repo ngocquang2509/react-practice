@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Header = styled.div`
   position: fixed;
@@ -7,7 +7,7 @@ const Header = styled.div`
   background: #fff;
   width: calc(100% - 300px);
   height: 100px;
-`
+`;
 
 const BrandName = styled.div`
   font-size: 24px;
@@ -16,11 +16,11 @@ const BrandName = styled.div`
   padding: 30px;
   text-decoration: none;
   text-transform: uppercase;
-`
+`;
 const HeaderRight = styled.div`
   float: right;
   padding: 30px;
-`
+`;
 const HeaderLink = styled.a`
   font-size: 18px;
   font-weight: 600;
@@ -31,6 +31,6 @@ const HeaderLink = styled.a`
     background: #ddd;
     border-radius: 5px;
   }
-`
+`;
 
-export { Header, BrandName, HeaderRight, HeaderLink }
+export { Header, BrandName, HeaderRight, HeaderLink };

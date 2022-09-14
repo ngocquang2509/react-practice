@@ -1,19 +1,19 @@
-import React from 'react'
-import SideBar from './layouts/Sidebar'
-import ListProduct from './components/List Product'
-import { StoreProvider } from './store'
-import Header from './layouts/Header'
+import React from 'react';
+import SideBar from './layouts/Sidebar';
+import ListProduct from './components/List Product';
+import { StoreProvider } from './store';
+import Header from './layouts/Header';
 
-function App() {
+const App = () => {
   return (
     <>
       <SideBar />
-      <Header/>
+      <Header />
       <StoreProvider>
         <ListProduct />
       </StoreProvider>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

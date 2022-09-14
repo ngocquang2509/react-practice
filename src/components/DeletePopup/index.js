@@ -1,7 +1,7 @@
-import React from 'react'
-import Button from '../common/Button'
-import PropTypes from 'prop-types'
-import * as SC from './style' // SC stand for Styled Components
+import React from 'react';
+import Button from '../common/Button';
+import PropTypes from 'prop-types';
+import * as SC from './style'; // SC stand for Styled Components
 
 const DeletePopup = ({ closeDeleteModal, onSubmit }) => {
   return (
@@ -19,12 +19,12 @@ const DeletePopup = ({ closeDeleteModal, onSubmit }) => {
         </SC.DeletePopupFooter>
       </SC.DeletePopupWrapper>
     </>
-  )
-}
+  );
+};
 
 DeletePopup.propTypes = {
   closeDeleteModal: PropTypes.func,
-  onSubmit: PropTypes.func
-}
+  onSubmit: PropTypes.func,
+};
 
-export default DeletePopup
+export default DeletePopup;

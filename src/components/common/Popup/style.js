@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const PopupOverlay = styled.div`
   position: fixed;
@@ -9,7 +9,7 @@ const PopupOverlay = styled.div`
   height: 100%;
   background-color: #000;
   opacity: 0.5;
-`
+`;
 
 const PopupWrapper = styled.div`
   position: fixed;
@@ -23,36 +23,36 @@ const PopupWrapper = styled.div`
   background: #ffffff;
   border: 1px solid #000000;
   border-radius: 10px;
-`
+`;
 
 const PopupClose = styled.span`
   position: absolute;
   top: 20px;
   right: 50px;
   cursor: pointer;
-`
+`;
 const PopupTitle = styled.h3`
   font-size: 32px;
   text-align: center;
   margin: 30px;
-`
+`;
 
 const PopupForm = styled.form`
   margin: 50px;
-`
+`;
 
 const PopupBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`
+`;
 
 const SelectMenu = styled.select`
   width: 592px;
@@ -67,7 +67,7 @@ const SelectMenu = styled.select`
     border-color: #e85f99;
     box-shadow: 0 0 0 3px hsla(335, 75%, 64%, 0.25);
   }
-`
+`;
 const SelectInput = styled.option`
   width: 570px;
   height: 30px;
@@ -75,12 +75,12 @@ const SelectInput = styled.option`
   border-radius: 50px;
   margin: 10px;
   padding-left: 20px;
-`
+`;
 
 const PopupLabel = styled.label`
   margin: 10px 30px 0;
   font-size: 20px;
-`
+`;
 const PopupInput = styled.input`
   width: 570px;
   height: 30px;
@@ -94,7 +94,7 @@ const PopupInput = styled.input`
     border-color: #e85f99;
     box-shadow: 0 0 0 3px hsla(335, 75%, 64%, 0.25);
   }
-`
+`;
 
 const PopupFooter = styled.div`
   display: flex;
@@ -102,13 +102,13 @@ const PopupFooter = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-top: 30px;
-`
+`;
 
 const PopupError = styled.div`
   color: red;
   font-size: 10px;
   padding-left: 30px;
-`
+`;
 
 export {
   PopupWrapper,
@@ -123,5 +123,5 @@ export {
   PopupForm,
   SelectInput,
   SelectMenu,
-  PopupError
-}
+  PopupError,
+};

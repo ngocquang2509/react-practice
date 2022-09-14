@@ -1,5 +1,5 @@
-import React from 'react'
-import * as SC from './style'
+import React from 'react';
+import * as SC from './style';
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
         </SC.HeaderRight>
       </SC.Header>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

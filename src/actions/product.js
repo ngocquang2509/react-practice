@@ -1,21 +1,21 @@
-import { PRODUCT } from '../constants'
+import { PRODUCT } from '../constants';
 
-export const addProduct = product => ({
+export const addProduct = (product) => ({
   type: PRODUCT.ADD,
-  product
-})
+  product,
+});
 
-export const deleteProduct = id => ({
+export const deleteProduct = (id) => ({
   type: PRODUCT.DELETE,
-  id
-})
+  id,
+});
 
-export const updateProduct = product => ({
+export const updateProduct = (product) => ({
   type: PRODUCT.UPDATE,
-  product
-})
+  product,
+});
 
-export const filterList = category => ({
+export const filterList = (category) => ({
   type: PRODUCT.FILTER,
-  category
-})
+  category,
+});

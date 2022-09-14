@@ -1,59 +1,59 @@
-import React, { useContext, useState } from 'react'
-import PropTypes from 'prop-types'
-import { selectCategory, StoreContext } from '../../../store'
-import Button from '../Button'
-import * as SC from './style' // SC stand for Styled Components
+import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
+import { selectCategory, StoreContext } from '../../../store';
+import Button from '../Button';
+import * as SC from './style'; // SC stand for Styled Components
 
 const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
-  const [productValue, setProductValue] = useState(products)
-  const [showErr, setShowErr] = useState({})
-  const { updateProduct } = useContext(StoreContext)
+  const [productValue, setProductValue] = useState(products);
+  const [showErr, setShowErr] = useState({});
+  const { updateProduct } = useContext(StoreContext);
 
-  const handleOnChange = e => {
-    const name = e.target.name
-    const value = e.target.value
+  const handleOnChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
 
-    setProductValue(values => ({ ...values, [name]: value }))
-  }
+    setProductValue((values) => ({ ...values, [name]: value }));
+  };
 
   const validate = () => {
-    const err = {}
+    const err = {};
     if (!productValue.productName) {
-      err.productName = 'Product name is required'
+      err.productName = 'Product name is required';
     }
     if (!productValue.productPrice) {
-      err.productPrice = 'Product price is required'
+      err.productPrice = 'Product price is required';
     } else if (productValue.productPrice < 0) {
-      err.productPrice = 'Product price must be greater than 0'
+      err.productPrice = 'Product price must be greater than 0';
     }
     if (!productValue.productCategory) {
-      err.productCategory = 'Product category is required'
+      err.productCategory = 'Product category is required';
     }
     if (!productValue.productImage) {
-      err.productImage = 'Product image is required'
+      err.productImage = 'Product image is required';
     }
-    setShowErr(err)
-    if (Object.keys(err).length > 0) return false
-    return true
-  }
+    setShowErr(err);
+    if (Object.keys(err).length > 0) return false;
+    return true;
+  };
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    const validation = validate()
-    if (!validation) return
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validation = validate();
+    if (!validation) return;
     if (productValue.id) {
-      updateProduct(productValue)
-      closeModal(false)
+      updateProduct(productValue);
+      closeModal(false);
     } else {
-      productValue.id = Date.now()
-      onSubmit({ ...productValue })
-      closeModal(false)
+      productValue.id = Date.now();
+      onSubmit({ ...productValue });
+      closeModal(false);
     }
-  }
+  };
 
   const handleCancel = () => {
-    closeModal(false)
-  }
+    closeModal(false);
+  };
 
   return (
     <>
@@ -81,7 +81,7 @@ const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
                 value={productValue.productCategory || ''}
                 onChange={handleOnChange}
               >
-                {selectCategory.map(options => (
+                {selectCategory.map((options) => (
                   <SC.SelectInput disabled={options.disable} key={options.id} value={options.value}>
                     {options.label}
                   </SC.SelectInput>
@@ -120,14 +120,14 @@ const Popup = ({ title, closeModal, onSubmit, products = {} }) => {
         </SC.PopupForm>
       </SC.PopupWrapper>
     </>
-  )
-}
+  );
+};
 
 Popup.propTypes = {
   title: PropTypes.string,
   onSubmit: PropTypes.func,
   closeModal: PropTypes.func,
-  products: PropTypes.object
-}
+  products: PropTypes.object,
+};
 
-export default Popup
+export default Popup;

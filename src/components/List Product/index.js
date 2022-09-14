@@ -1,28 +1,28 @@
-import React, { useContext, useRef, useState } from 'react'
-import Item from '../Item'
-import Button from '../common/Button'
-import Popup from '../common/Popup'
-import Search from '../Search'
-import * as SC from './style' // SC is stands for Styled-Components
+import React, { useContext, useRef, useState } from 'react';
+import Item from '../Item';
+import Button from '../common/Button';
+import Popup from '../common/Popup';
+import Search from '../Search';
+import * as SC from './style'; // SC is stands for Styled-Components
 
-import { StoreContext } from '../../store'
+import { StoreContext } from '../../store';
 
 const ListProduct = () => {
-  const [openModal, setOpenModal] = useState(false)
-  const [query, setQuery] = useState('')
-  const { addProduct, products, filterList } = useContext(StoreContext)
-  const typingTimeoutRef = useRef(null)
+  const [openModal, setOpenModal] = useState(false);
+  const [query, setQuery] = useState('');
+  const { addProduct, products, filterList } = useContext(StoreContext);
+  const typingTimeoutRef = useRef(null);
 
-  const handleSearchInput = e => {
+  const handleSearchInput = (e) => {
     if (typingTimeoutRef.current) {
-      clearTimeout(typingTimeoutRef.current)
+      clearTimeout(typingTimeoutRef.current);
     }
 
     typingTimeoutRef.current = setTimeout(() => {
-      const value = e.target.value.trim()
-      setQuery(value)
-    }, 500)
-  }
+      const value = e.target.value.trim();
+      setQuery(value);
+    }, 500);
+  };
 
   return (
     <SC.ListProductWrap>
@@ -40,7 +40,7 @@ const ListProduct = () => {
         <Item products={filterList.length === 0 ? products : filterList} query={query} />
       </SC.ListProductItem>
     </SC.ListProductWrap>
-  )
-}
+  );
+};
 
-export default ListProduct
+export default ListProduct;

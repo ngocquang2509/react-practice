@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import * as SC from './style' // SC is stands for Styled-Components
+import React from 'react';
+import PropTypes from 'prop-types';
+import * as SC from './style'; // SC is stands for Styled-Components
 
 const Button = ({ label, backgroundColor, textColor, handleClick, img, mg }) => {
   return (
@@ -8,15 +8,15 @@ const Button = ({ label, backgroundColor, textColor, handleClick, img, mg }) => 
       <img src={img} alt="" />
       <SC.Label>{label}</SC.Label>
     </SC.Button>
-  )
-}
+  );
+};
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
   textColor: PropTypes.string,
   img: PropTypes.string,
-  handleClick: PropTypes.func
-}
+  handleClick: PropTypes.func,
+};
 
-export default Button
+export default Button;

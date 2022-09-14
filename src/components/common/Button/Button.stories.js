@@ -1,5 +1,5 @@
-import React from 'react'
-import Button from './index'
+import React from 'react';
+import Button from './index';
 
 export default {
   title: 'Button',
@@ -7,28 +7,28 @@ export default {
   argTypes: {
     handleClick: { action: 'clicked' },
     backgroundColor: { control: 'color' },
-    textColor: { control: 'color' }
-  }
-}
+    textColor: { control: 'color' },
+  },
+};
 
-const Template = args => <Button {...args} />
-export const Default = Template.bind({})
+const Template = (args) => <Button {...args} />;
+export const Default = Template.bind({});
 Default.args = {
   label: 'Default',
   backgroundColor: '#fff',
-  textColor: '#000'
-}
+  textColor: '#000',
+};
 
-export const Edit = Template.bind({})
+export const Edit = Template.bind({});
 Edit.args = {
   label: 'Edit',
   backgroundColor: '#ffcf00',
-  textColor: '#000'
-}
+  textColor: '#000',
+};
 
-export const Delete = Template.bind({})
+export const Delete = Template.bind({});
 Delete.args = {
   label: 'Delete',
   backgroundColor: '#ff0000',
-  textColor: '#000'
-}
+  textColor: '#000',
+};
