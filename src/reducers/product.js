@@ -1,5 +1,5 @@
 import { KEY, PRODUCT } from '../constants'
-import { saveLocalStorage } from '../helper'
+import { saveLocalStorage } from '../helpers'
 
 export const initState = {
   products: JSON.parse(localStorage.getItem(KEY)) || [],
