@@ -6,22 +6,19 @@ import {
   StyledModal,
   StyledModalHeader,
   StyledModalContent,
-  StyledFooter,
+  StyledCloseModal
 } from './style';
-import Button from '../Button';
 
-const Modal = ({ title, isOpen, children }) => {
+
+const Modal = ({ title, isOpen, children}) => {
   return (
     <>
       <StyledOverlay />
       <StyledModalWrapper>
         <StyledModal>
+          <StyledCloseModal onClick={() => isOpen(false)}>X</StyledCloseModal>
           <StyledModalHeader>{title}</StyledModalHeader>
           <StyledModalContent>{children}</StyledModalContent>
-          <StyledFooter>
-            <Button label="Cancel" handleClick={() => isOpen(false)} />
-            <Button label="Save" />
-          </StyledFooter>
         </StyledModal>
       </StyledModalWrapper>
     </>

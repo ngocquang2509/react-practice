@@ -19,7 +19,7 @@ export const StyledModalWrapper = styled.div`
 `;
 export const StyledModal = styled.div`
   width: 750px;
-  height: 600px;
+  height: auto;
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 10px;
@@ -32,7 +32,7 @@ export const StyledModal = styled.div`
 export const StyledModalHeader = styled.h3`
   font-size: 32px;
   text-align: center;
-  margin-top: 30px;
+  margin: 50px;
 `;
 
 export const StyledModalContent = styled.div`
@@ -42,9 +42,9 @@ export const StyledModalContent = styled.div`
   justify-content: center;
 `;
 
-export const StyledFooter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-top: 30px;
-`;
+export const StyledCloseModal = styled.span`
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  cursor: pointer;
+`
