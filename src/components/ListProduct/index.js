@@ -4,8 +4,9 @@ import Button from '../common/Button';
 import Popup from '../common/Popup';
 import Search from '../Search';
 import * as SC from './style'; // SC is stands for Styled-Components
-
 import { StoreContext } from '../../store';
+
+import AddProduct from '../AddProduct';
 
 const ListProduct = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -36,6 +37,7 @@ const ListProduct = () => {
         handleClick={() => setOpenModal(true)}
       />
       {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct} title="Create Product" />}
+      <AddProduct />
       <SC.ListProductItem>
         <Item products={filterList.length === 0 ? products : filterList} query={query} />
       </SC.ListProductItem>

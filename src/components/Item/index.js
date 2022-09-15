@@ -5,6 +5,10 @@ import Button from '../common/Button';
 import DeletePopup from '../DeletePopup';
 import Popup from '../common/Popup';
 import * as SC from './style'; // SC is stands for Styled-Components
+import {Delete} from '@styled-icons/fluentui-system-regular/Delete';
+import {EditAlt} from '@styled-icons/boxicons-regular/EditAlt';
+import EditProduct from '../EditProduct';
+import DeleteProduct from '../DeleteProduct';
 
 const Item = ({ products, query }) => {
   const { deleteProduct, updateProduct } = useContext(StoreContext);
@@ -48,15 +52,19 @@ const Item = ({ products, query }) => {
               <Button
                 label="Edit"
                 backgroundColor="#ffcf00"
-                img="/icons/edit.svg"
                 handleClick={() => setSelectProductUpdate(product)}
-              />
+              >
+                <EditAlt size='24' />
+              </Button>
+              <EditProduct/>
+              <DeleteProduct/>
               <Button
                 label="Delete"
                 backgroundColor="#ff0000"
-                img="/icons/delete.svg"
                 handleClick={() => handelOpenDeletePopup(product.id)}
-              />
+              >
+                <Delete size='24' />
+              </Button>
               {selectProductDelete && <DeletePopup closeDeleteModal={handleCloseDeletePopup} onSubmit={handleDelete} />}
               {selectProductUpdate && (
                 <Popup
