@@ -9,9 +9,8 @@ import { StoreContext } from '../../store';
 import AddProduct from '../AddProduct';
 
 const ListProduct = () => {
-  const [openModal, setOpenModal] = useState(false);
   const [query, setQuery] = useState('');
-  const { addProduct, products, filterList } = useContext(StoreContext);
+  const { products, filterList } = useContext(StoreContext);
   const typingTimeoutRef = useRef(null);
 
   const handleSearchInput = (e) => {
@@ -29,14 +28,6 @@ const ListProduct = () => {
     <SC.ListProductWrap>
       <SC.ListProductTitle>List Product</SC.ListProductTitle>
       <Search handleChange={handleSearchInput} />
-      <Button
-        mg="10px 100px"
-        label="Create"
-        backgroundColor="#418CD1"
-        img="/icons/add.svg"
-        handleClick={() => setOpenModal(true)}
-      />
-      {openModal && <Popup closeModal={setOpenModal} onSubmit={addProduct} title="Create Product" />}
       <AddProduct />
       <SC.ListProductItem>
         <Item products={filterList.length === 0 ? products : filterList} query={query} />

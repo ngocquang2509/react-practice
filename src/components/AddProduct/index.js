@@ -3,7 +3,14 @@ import Modal from '../common/Modal';
 import Button from '../common/Button';
 import { Add } from '@styled-icons/fluentui-system-filled/Add';
 import { selectCategory, StoreContext } from '../../store';
-import { StyledForm, StyledInputContainer, StyledInputLabel, StyledInput, StyledActionContainer, StyledSelect } from './style';
+import {
+  StyledForm,
+  StyledInputContainer,
+  StyledInputLabel,
+  StyledInput,
+  StyledActionContainer,
+  StyledSelect,
+} from './style';
 
 const AddProduct = ({ products = {} }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +65,7 @@ const AddProduct = ({ products = {} }) => {
 
   return (
     <>
-      <Button label="Create" handleClick={handleOpen}>
+      <Button mg="10px 100px" backgroundColor="#418CD1" label="Create" handleClick={handleOpen}>
         <Add size="24" />
       </Button>
       {isOpen && (
@@ -106,8 +113,8 @@ const AddProduct = ({ products = {} }) => {
               />
             </StyledInputContainer>
             <StyledActionContainer>
-              <Button label="Cancel" backgroundColor='red' handleClick={handleClose} />
-              <Button label="Submit" backgroundColor='green' handleClick={handleSubmit} />
+              <Button label="Cancel" backgroundColor="red" handleClick={handleClose} />
+              <Button label="Submit" backgroundColor="green" handleClick={handleSubmit} />
             </StyledActionContainer>
           </StyledForm>
         </Modal>
