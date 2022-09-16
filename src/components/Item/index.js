@@ -14,9 +14,15 @@ const Item = ({ products, query }) => {
   const { deleteProduct, updateProduct } = useContext(StoreContext);
   const [selectProductUpdate, setSelectProductUpdate] = useState(null);
   const [selectProductDelete, setSelectProductDelete] = useState(null);
+  const [selectItem, setSelectItem] = useState(null);
+
+  const handleOpenDeleteProduct = (id) => {
+    setSelectItem(id);
+  }
 
   const handelOpenDeletePopup = (id) => {
     setSelectProductDelete(id);
+    console.log('selectProductDelete', id);
   };
 
   const handleClosePopup = () => {
@@ -56,8 +62,15 @@ const Item = ({ products, query }) => {
               >
                 <EditAlt size='24' />
               </Button>
-              <EditProduct/>
-              <DeleteProduct/>
+              <Button
+                label="Delete2"
+                backgroundColor="#ff0000"
+                handleClick={() => handleOpenDeleteProduct(product.id)}
+              >
+                <Delete size='24' />
+              </Button>
+              {selectItem && <DeleteProduct/>}
+        
               <Button
                 label="Delete"
                 backgroundColor="#ff0000"
