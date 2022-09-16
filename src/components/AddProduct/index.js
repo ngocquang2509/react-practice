@@ -3,6 +3,7 @@ import Modal from '../common/Modal';
 import Button from '../common/Button';
 import { Add } from '@styled-icons/fluentui-system-filled/Add';
 import { selectCategory, StoreContext } from '../../store';
+import { StyledForm, StyledInputContainer, StyledInputLabel, StyledInput, StyledActionContainer, StyledSelect } from './style';
 
 const AddProduct = ({ products = {} }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const AddProduct = ({ products = {} }) => {
 
   const handleClose = () => {
     setIsOpen(false);
-  }
+  };
 
   const handleOnChange = (e) => {
     const name = e.target.name;
@@ -51,7 +52,7 @@ const AddProduct = ({ products = {} }) => {
     const validation = validate();
     if (!validation) return;
     productValue.id = Date.now();
-    addProduct({...productValue});
+    addProduct({ ...productValue });
     handleClose();
   };
 
@@ -62,46 +63,53 @@ const AddProduct = ({ products = {} }) => {
       </Button>
       {isOpen && (
         <Modal title="Create Product" isOpen={setIsOpen}>
-          <form >
-            <div>
-
-            <label htmlFor="productName">Product Name</label>
-            <input
-              type="text"
-              placeholder="Product Name"
-              name="productName"
-              value={productValue.productName || ''}
-              onChange={handleOnChange}
-            />
-            </div>
-            <label htmlFor="productCategory">Product Category</label>
-            <select name="productCategory" value={productValue.productCategory || ''} onChange={handleOnChange}>
-              {selectCategory.map((options) => (
-                <option disabled={options.disable} key={options.id} value={options.value}>
-                  {options.label}
-                </option>
-              ))}
-            </select>
-            <label htmlFor="productPrice">Product Price</label>
-            <input
-              type="text"
-              inputMode="numeric"
-              placeholder="Price"
-              name="productPrice"
-              value={productValue.productPrice || ''}
-              onChange={handleOnChange}
-            />
-            <label htmlFor="productImage">Product Image</label>
-            <input
-              type="text"
-              placeholder="Image"
-              name="productImage"
-              value={productValue.productImage || ''}
-              onChange={handleOnChange}
-            />
-            <Button label='Cancel' handleClick={handleClose} />
-            <Button label='Submit' handleClick={handleSubmit}/>
-          </form>
+          <StyledForm as="form">
+            <StyledInputContainer>
+              <StyledInputLabel htmlFor="productName">Product Name</StyledInputLabel>
+              <StyledInput
+                type="text"
+                placeholder="Name"
+                name="productName"
+                value={productValue.productName || ''}
+                onChange={handleOnChange}
+              />
+            </StyledInputContainer>
+            <StyledInputContainer>
+              <StyledInputLabel htmlFor="productCategory">Product Category</StyledInputLabel>
+              <StyledSelect name="productCategory" value={productValue.productCategory || ''} onChange={handleOnChange}>
+                {selectCategory.map((options) => (
+                  <option disabled={options.disable} key={options.id} value={options.value}>
+                    {options.label}
+                  </option>
+                ))}
+              </StyledSelect>
+            </StyledInputContainer>
+            <StyledInputContainer>
+              <StyledInputLabel htmlFor="productPrice">Product Price</StyledInputLabel>
+              <StyledInput
+                type="text"
+                inputMode="numeric"
+                placeholder="Price"
+                name="productPrice"
+                value={productValue.productPrice || ''}
+                onChange={handleOnChange}
+              />
+            </StyledInputContainer>
+            <StyledInputContainer>
+              <StyledInputLabel htmlFor="productImage">Product Image</StyledInputLabel>
+              <StyledInput
+                type="text"
+                placeholder="Image link"
+                name="productImage"
+                value={productValue.productImage || ''}
+                onChange={handleOnChange}
+              />
+            </StyledInputContainer>
+            <StyledActionContainer>
+              <Button label="Cancel" backgroundColor='red' handleClick={handleClose} />
+              <Button label="Submit" backgroundColor='green' handleClick={handleSubmit} />
+            </StyledActionContainer>
+          </StyledForm>
         </Modal>
       )}
     </>
