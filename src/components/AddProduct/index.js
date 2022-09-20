@@ -8,7 +8,6 @@ import {
   StyledInputContainer,
   StyledInputLabel,
   StyledInput,
-  StyledActionContainer,
   StyledSelect,
 } from './style';
 
@@ -18,13 +17,10 @@ const AddProduct = ({ products = {} }) => {
   const [showErr, setShowErr] = useState({});
   const { addProduct } = useContext(StoreContext);
 
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+    console.log('handleToggle', isOpen)
+  }
 
   const handleOnChange = (e) => {
     const name = e.target.name;
@@ -60,16 +56,15 @@ const AddProduct = ({ products = {} }) => {
     if (!validation) return;
     productValue.id = Date.now();
     addProduct({ ...productValue });
-    handleClose();
+    handleToggle();
   };
 
   return (
     <>
-      <Button mg="10px 100px" backgroundColor="#418CD1" label="Create" handleClick={handleOpen}>
+      <Button mg="10px 100px" backgroundColor="#418CD1" label="Create" handleClick={handleToggle}>
         <Add size="24" />
       </Button>
-      {isOpen && (
-        <Modal title="Create Product" isOpen={setIsOpen}>
+        <Modal title="Create Product" isOpen={isOpen} onSubmit={handleSubmit} onClose={handleToggle}>
           <StyledForm as="form">
             <StyledInputContainer>
               <StyledInputLabel htmlFor="productName">Product Name</StyledInputLabel>
@@ -112,13 +107,8 @@ const AddProduct = ({ products = {} }) => {
                 onChange={handleOnChange}
               />
             </StyledInputContainer>
-            <StyledActionContainer>
-              <Button label="Cancel" backgroundColor="red" handleClick={handleClose} />
-              <Button label="Submit" backgroundColor="green" handleClick={handleSubmit} />
-            </StyledActionContainer>
           </StyledForm>
         </Modal>
-      )}
     </>
   );
 };

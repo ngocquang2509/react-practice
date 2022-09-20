@@ -48,3 +48,12 @@ export const StyledCloseModal = styled.span`
   right: 50px;
   cursor: pointer;
 `
+
+export const StyledModalAction = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 30px 0;
+`;
+

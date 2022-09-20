@@ -35,8 +35,3 @@ export const StyledSelect = styled.select`
   border-radius: 50px;
 `;
 
-export const StyledActionContainer = styled(StyledForm)`
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 30px 0;
-`;
