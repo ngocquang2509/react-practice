@@ -9,34 +9,24 @@ const DeleteProduct = () => {
   const [selectProductDelete, setSelectProductDelete] = useState(null);
   const {deleteProduct, products} = useContext(StoreContext);
 
-  console.log('products', products);
-
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-    setSelectProductDelete(null);
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+    console.log('handleToggle', isOpen)
   }
 
   const handleDelete = () => {
     deleteProduct(selectProductDelete);
-    handleClose();
+    handleToggle()
   }
 
   return (
     <>
-      <Button label="Delete" backgroundColor="#ff0000" handleClick={handleOpen}>
-        <Delete size="24" />
-      </Button>
-      {isOpen && (
-        <Modal title="Delete" isOpen={setIsOpen}>
+    <Button label="Delete" backgroundColor="red" handleClick={handleToggle}>
+      <Delete size="24"/>
+    </Button>
+        <Modal title="Delete" isOpen={isOpen} onClose={handleToggle} onSubmit={handleDelete}>
           <p>Are you sure you want to delete this product?</p>
-          <Button label='Cancel' backgroundColor='red' handleClick={handleClose} />
-          <Button label='Delete' backgroundColor='green' handleClick={handleDelete} />
         </Modal>
-      )}
     </>
   );
 };

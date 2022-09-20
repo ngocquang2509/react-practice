@@ -16,13 +16,13 @@ const Item = ({ products, query }) => {
   const [selectProductDelete, setSelectProductDelete] = useState(null);
   const [selectItem, setSelectItem] = useState(null);
 
-  const handleOpenDeleteProduct = (id) => {
+  const handleOpenDeleteModal = (id) => {
     setSelectItem(id);
+    console.log('Select Item', id);
   }
 
   const handelOpenDeletePopup = (id) => {
     setSelectProductDelete(id);
-    console.log('selectProductDelete', id);
   };
 
   const handleClosePopup = () => {
@@ -62,23 +62,29 @@ const Item = ({ products, query }) => {
               >
                 <EditAlt size='24' />
               </Button>
+
+              {/* New delete btn */}
               <Button
                 label="Delete2"
                 backgroundColor="#ff0000"
-                handleClick={() => handleOpenDeleteProduct(product.id)}
+                handleClick={() => handleOpenDeleteModal(product.id)}
               >
                 <Delete size='24' />
               </Button>
               {selectItem && <DeleteProduct/>}
         
-              <Button
+
+              {/* Old delete btn */}
+              {/* <Button
                 label="Delete"
                 backgroundColor="#ff0000"
                 handleClick={() => handelOpenDeletePopup(product.id)}
               >
                 <Delete size='24' />
               </Button>
-              {selectProductDelete && <DeletePopup closeDeleteModal={handleCloseDeletePopup} onSubmit={handleDelete} />}
+              {selectProductDelete && <DeletePopup closeDeleteModal={handleCloseDeletePopup} onSubmit={handleDelete} />} */}
+
+
               {selectProductUpdate && (
                 <Popup
                   products={selectProductUpdate}
